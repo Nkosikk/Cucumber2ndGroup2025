@@ -2,11 +2,11 @@ package StepsDefinition;
 
 import io.cucumber.java.en.*;
 
-public class Steps {
+public class Steps extends Base {
 
     @Given("The user table is displayed")
     public void the_user_table_is_displayed() {
-
+        userTablePage.verifyUserTableIsDisplayed();
     }
     @And("The user click add user")
     public void the_user_click_add_user() {
