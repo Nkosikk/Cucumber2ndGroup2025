@@ -10,6 +10,8 @@ public class Steps extends Base {
     }
     @And("The user click add user")
     public void the_user_click_add_user() {
+        userTablePage.clickAddUserButton();
+
 
     }
     @And("The user validates that the add user form is displayed")

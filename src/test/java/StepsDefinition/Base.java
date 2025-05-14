@@ -12,4 +12,5 @@ public class Base {
     final WebDriver driver = browserFactory.startBrowser("chrome", "https://www.way2automation.com/angularjs-protractor/webtables/");
     UserTablePage userTablePage = PageFactory.initElements(driver, UserTablePage.class);
     AddUserPage addUserPage = PageFactory.initElements(driver, AddUserPage.class);
+
 }
