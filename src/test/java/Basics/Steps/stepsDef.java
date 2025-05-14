@@ -1,4 +1,4 @@
-package Steps;
+package Basics.Steps;
 
 import io.cucumber.java.en.*;
 import org.openqa.selenium.By;
@@ -16,7 +16,7 @@ public class stepsDef {
         driver.manage().window().maximize();
     }
     @And("i enter username (.*)$")
-    public void i_enter_username_standard_user(String username) {
+    public void  i_enter_username_standard_user(String username) {
         driver.findElement(By.id("user-name")).sendKeys(username);
     }
     @And("I enter password (.*)$")

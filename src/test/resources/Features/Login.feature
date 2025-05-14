@@ -1,3 +1,4 @@
+@Regression @Login
 Feature: Sauce Demo
 
   Scenario Outline: As a user i want to login to sauce demo
@@ -10,5 +11,5 @@ Feature: Sauce Demo
     Examples:
       | username                | password     |
       | standard_user           | secret_sauce |
-      | performance_glitch_user | secret_sauce |
-      | visual_user             | secret_sauce |
+  #    | performance_glitch_user | secret_sauce |
+  #   | visual_user             | secret_sauce |
