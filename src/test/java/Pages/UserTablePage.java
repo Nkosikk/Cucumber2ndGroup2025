@@ -1,6 +1,5 @@
 package Pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -20,14 +19,11 @@ public class UserTablePage {
     public UserTablePage(WebDriver driver) {
         this.driver = driver;
     }
-
     public void verifyUserTableIsDisplayed(){
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(firstNameLabel_xpath));
         firstNameLabel_xpath.isDisplayed();
-
     }
     public void clickAddUserButton() {
         addUserButton_xpath.click();
-
     }
 }
