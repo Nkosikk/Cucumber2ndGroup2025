@@ -2,6 +2,8 @@ package StepsDefinition;
 
 import io.cucumber.java.en.*;
 
+import java.util.Random;
+
 public class Steps extends Base {
 
     @Given("The user table is displayed")
@@ -26,5 +28,15 @@ public class Steps extends Base {
     @And("The user enters the lastName (.*)$")
     public void theUserEntersTheLastName(String lastName) {
         addUserPage.enterLastName(lastName);
+    }
+
+
+    @And("The user enter the userName which comes from (.*) and (.*)$")
+    public void theUserEnterTheUserNameWhichComesFromLastNameAndFirstName(String firstName, String lastName) {
+        Random random = new Random();
+        int randomNumber = 10000 + random.nextInt(90000); // Generates a 4-digit random number
+
+        String Username=firstName+lastName+randomNumber;
+        addUserPage.enterUserName(Username);
     }
 }
