@@ -16,10 +16,15 @@ public class Steps extends Base {
     }
     @And("The user validates that the add user form is displayed")
     public void the_user_validates_that_the_add_user_form_is_displayed() {
-
+        addUserPage.verifyAddUserPageIsDisplayed();
     }
     @And("The user enters the firstName (.*)$")
     public void the_user_enters_the_first_name(String firstName) {
+        addUserPage.enterFirstName(firstName);
+    }
 
+    @And("The user enters the lastName (.*)$")
+    public void theUserEntersTheLastName(String lastName) {
+        addUserPage.enterLastName(lastName);
     }
 }
