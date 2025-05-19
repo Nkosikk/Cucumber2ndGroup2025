@@ -1,5 +1,6 @@
 package StepsDefinition;
 
+import io.cucumber.java.After;
 import io.cucumber.java.en.*;
 
 import java.util.Random;
@@ -38,5 +39,10 @@ public class Steps extends Base {
 
         String Username=firstName+lastName+randomNumber;
         addUserPage.enterUserName(Username);
+    }
+
+    @After
+    public void quitBrowser() {
+        driver.quit();
     }
 }
