@@ -6,9 +6,9 @@ Feature: Sauce Demo
     And I enter password <password>
     When i click login button
     Then I should be on the home page
-  
+
     Examples:
       | username                | password     |
       | standard_user           | secret_sauce |
-     # | performance_glitch_user | secret_sauce |
-     # | visual_user             | secret_sauce |
+      | performance_glitch_user | secret_sauce |
+      | visual_user             | secret_sauce |
