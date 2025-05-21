@@ -11,5 +11,5 @@ import io.cucumber.testng.CucumberOptions;
         tags = "@AddUser"
 )
 
-public class Runner extends AbstractTestNGCucumberTests {
+public class RunnerTest extends AbstractTestNGCucumberTests {
 }
