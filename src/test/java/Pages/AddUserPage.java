@@ -14,16 +14,22 @@ public class AddUserPage {
 
     @FindBy(xpath = "/html/body/div[2]/div[1]/h3")
     WebElement AddUserForm_xpath;
+
     @FindBy(xpath = "/html/body/div[2]/div[2]/form/table/tbody/tr[1]/td[2]/input")
     WebElement firstNameColumn_xpath;
+
     @FindBy(xpath = "/html/body/div[2]/div[2]/form/table/tbody/tr[2]/td[2]/input")
     WebElement lastNameColumn_xpath;
+
     @FindBy(xpath = "/html/body/div[2]/div[2]/form/table/tbody/tr[3]/td[2]/input")
     WebElement userNameColumn_xpath;
+
     @FindBy(xpath = "/html/body/div[2]/div[2]/form/table/tbody/tr[4]/td[2]/input")
     WebElement passwordColumn_xpath;
+
     @FindBy(xpath = "/html/body/div[2]/div[2]/form/table/tbody/tr[5]/td[2]/label[1]/input")
     WebElement customerAAA_xpath;
+
     @FindBy(xpath = "//button[contains(.,'Add User')]")
     WebElement addUserButton_xpath;
 
@@ -32,7 +38,7 @@ public class AddUserPage {
     }
 
     public void verifyAddUserFormIsDisplayed(){
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(firstNameLabel_xpath));
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(AddUserForm_xpath));
         AddUserForm_xpath.isDisplayed();
     }
 
