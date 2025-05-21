@@ -11,9 +11,6 @@ Feature: User Table
 #    And The user enters the password <password>
 #    And The user select the customerType <customerType>
 #    And The user select the role <role>
-#
-
-
 
     Examples:
         | firstName | lastName |
