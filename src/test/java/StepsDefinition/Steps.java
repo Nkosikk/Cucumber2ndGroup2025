@@ -1,6 +1,9 @@
 package StepsDefinition;
 
+import io.cucumber.java.After;
 import io.cucumber.java.en.*;
+
+import java.util.Random;
 
 public class Steps extends Base {
 
@@ -16,12 +19,41 @@ public class Steps extends Base {
 
     @And("The user validates that the add user form is displayed")
     public void the_user_validates_that_the_add_user_form_is_displayed() {
+<<<<<<< HEAD
         addUserPage.verifyAddUserFormIsDisplayed();
+=======
+        addUserPage.verifyAddUserPageIsDisplayed();
+>>>>>>> e945785aacf87fcd64888c8f0f63130116b80f56
     }
 
     @And("The user enters the firstName (.*)$")
+<<<<<<< HEAD
     public void the_user_enters_the_first(String firstName) {
         addUserPage.enterFirstName(firstName);
+=======
+    public void the_user_enters_the_first_name(String firstName) {
+        addUserPage.enterFirstName(firstName);
+    }
+
+    @And("The user enters the lastName (.*)$")
+    public void theUserEntersTheLastName(String lastName) {
+        addUserPage.enterLastName(lastName);
+    }
+
+
+    @And("The user enter the userName which comes from (.*) and (.*)$")
+    public void theUserEnterTheUserNameWhichComesFromLastNameAndFirstName(String firstName, String lastName) {
+        Random random = new Random();
+        int randomNumber = 10000 + random.nextInt(90000); // Generates a 4-digit random number
+
+        String Username=firstName+lastName+randomNumber;
+        addUserPage.enterUserName(Username);
+    }
+
+    @After
+    public void quitBrowser() {
+        driver.quit();
+>>>>>>> e945785aacf87fcd64888c8f0f63130116b80f56
     }
     @And("The user enters the lastName (.*)$")
     public void the_user_enters_the_last_name(String lastName) {
