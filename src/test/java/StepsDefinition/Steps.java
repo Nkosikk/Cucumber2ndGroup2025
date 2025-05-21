@@ -41,8 +41,8 @@ public class Steps extends Base {
         addUserPage.enterUserName(Username);
     }
 
-//    @After
-//    public void quitBrowser() {
-//        driver.quit();
-//    }
+    @After
+    public void quitBrowser() {
+        driver.quit();
+    }
 }
