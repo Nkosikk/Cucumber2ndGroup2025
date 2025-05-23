@@ -1,5 +1,6 @@
 package StepsDefinition;
 
+import Pages.ProductPage;
 import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Scenario;
@@ -8,51 +9,59 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
 
-import java.util.Random;
-
 public class Steps extends Base {
 
-    @Given("The user table is displayed")
-    public void the_user_table_is_displayed() {
-        userTablePage.verifyUserTableIsDisplayed();
+    ProductPage productPage = new ProductPage(driver);
+
+    @Given("I am on the Demoblaze product page")
+    public void i_am_on_the_demoblaze_product_page() {
+        productPage.verifyHomePageisDisplayed();
     }
 
-    @And("The user click add user")
-    public void the_user_click_add_user() {
-        userTablePage.clickAddUserButton();
-
+    @When("I verify that the product page is displayed")
+    public void i_verify_that_the_product_page_is_displayed() {
+        productPage.verifyHomePageisDisplayed();
 
     }
 
-    @And("The user validates that the add user form is displayed")
-    public void the_user_validates_that_the_add_user_form_is_displayed() {
-        addUserPage.verifyAddUserPageIsDisplayed();
+    @And("I verify that the categories are displayed")
+    public void i_verify_that_the_categories_are_displayed() {
+        productPage.verifycategoriesisDisplayed();
     }
 
-    @And("The user enters the firstName (.*)$")
-    public void the_user_enters_the_first_name(String firstName) {
-        addUserPage.enterFirstName(firstName);
+    @And("I click on laptops under categories (.*)$")
+    public void i_click_on_laptops_under_categories_laptops(String categories) {
+        productPage.clickoncategoryproductType(categories);
     }
 
-    @And("The user enters the lastName (.*)$")
-    public void theUserEntersTheLastName(String lastName) {
-        addUserPage.enterLastName(lastName);
+    @And("I click on the desired product (.*$)")
+    public void i_click_on_the_desired_product(String product) {
+        productPage.clickonProductName(product);
     }
 
-
-    @And("The user enter the userName which comes from (.*) and (.*)$")
-    public void theUserEnterTheUserNameWhichComesFromLastNameAndFirstName(String firstName, String lastName) {
-        Random random = new Random();
-        int randomNumber = 10000 + random.nextInt(90000); // Generates a 4-digit random number
-
-        String Username = firstName + lastName + randomNumber;
-        addUserPage.enterUserName(Username);
+    @Then("I verify that the product details are displayed")
+    public void i_verify_that_the_product_details_are_displayed() {
+        productPage.verifyproductname();
     }
+
+    @And("I click on the add to cart button")
+    public void i_click_on_the_add_to_cart_button() {
+        productPage.clickonAddToCart();
+    }
+
+    @Then("I verify the product added pop up is displayed")
+    public void i_verify_the_product_added_pop_up_is_displayed() {
+    }
+
+    @Then("I click on cart to be redirected to the cart page")
+    public void i_click_on_cart_to_be_redirected_to_the_cart_page() {
+    }
+
 
     @AfterStep
     public void addScreenshot(Scenario scenario) {
         if (scenario.isFailed()) {
-            byte[] screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
+            byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot, "image/png", "screenshot");
         }
     }
