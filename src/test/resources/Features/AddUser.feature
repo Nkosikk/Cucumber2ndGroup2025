@@ -10,8 +10,8 @@ Feature: User Table
     And The user enter the userName which comes from <firstName> and <lastName>
     And The user enters the password <password>
     And The user select the customerType <customerType>
-    And The user select the role <role>
-#
+ #   And The user select the role <role>
+
 
 
 
