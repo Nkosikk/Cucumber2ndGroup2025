@@ -59,6 +59,24 @@ public class Steps extends Base {
 
     @After
     public void quitBrowser() {
-        driver.quit();
+//        driver.quit();
     }
+
+    @And("The user enters the password {}")
+    public void theUserEntersThePassword(String password) {
+
+        addUserPage.enterPassword(password);
+    }
+
+    @And("The user select the customerType {}")
+    public void theUserSelectTheCustomerType(String customerType) {
+
+        addUserPage.selectCompanyType(customerType);
+    }
+
+    @And("The user select the role {}")
+    public void theUserSelectTheRoleRole(String role) {
+        addUserPage.selectRole(role.trim());
+    }
+
 }
