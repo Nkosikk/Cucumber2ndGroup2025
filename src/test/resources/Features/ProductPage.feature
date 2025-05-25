@@ -8,8 +8,8 @@ Feature: Demoblaze
     And I click on the desired product <product type>
     Then I verify that the product details are displayed
     And I click on the add to cart button
-#    Then I verify the product added pop up is displayed
- #   Then I click on cart to be redirected to the cart page
+    Then I verify the product added pop up is displayed
+    Then I click on cart to be redirected to the cart page
 
     Examples:
       | categories | product type |
