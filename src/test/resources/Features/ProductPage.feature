@@ -1,3 +1,4 @@
+@ProductTag
 Feature: Demoblaze
 
   Scenario Outline: As a user I want to verify that I'm on the Demoblaze product page.

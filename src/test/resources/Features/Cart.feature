@@ -1,3 +1,4 @@
+@CartTag
 Feature: Demoblaze cart
 
   Scenario Outline: As a user I want to verify cart page and proceed to checkout.

@@ -5,8 +5,10 @@ import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Scenario;
 import io.cucumber.java.en.*;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.testng.Assert;
 
 
 public class Steps extends Base {
@@ -51,6 +53,12 @@ public class Steps extends Base {
 
     @Then("I verify the product added pop up is displayed")
     public void i_verify_the_product_added_pop_up_is_displayed() {
+        Alert alert = driver.switchTo().alert();
+        String actualAlertText = alert.getText();
+        Assert.assertTrue(actualAlertText.contains("Product added"), "Product added pop-up is not displayed as expected.");
+        alert.accept();
+
+
         String expectedMessage = "Product added";
         String actualMessage = driver.switchTo().alert().getText();
         if (actualMessage.contains(expectedMessage)) {
