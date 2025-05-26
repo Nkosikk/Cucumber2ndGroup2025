@@ -15,6 +15,7 @@ public class Steps extends Base {
     @Given("I am in the product store")
     public void i_am_in_the_product_store() {
 
+
     }
 
     @When("I select a laptop from the product list")
