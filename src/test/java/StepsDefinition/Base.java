@@ -10,7 +10,7 @@ public class Base {
 
     BrowserFactory browserFactory = new BrowserFactory();
     final WebDriver driver = browserFactory.startBrowser("chrome", "https://www.demoblaze.com/index.html");
-    HomePage userTablePage = PageFactory.initElements(driver, HomePage.class);
+    HomePage homePage = PageFactory.initElements(driver, HomePage.class);
     AddUserPage addUserPage = PageFactory.initElements(driver, AddUserPage.class);
 
 }
