@@ -32,7 +32,7 @@ public class ProductPage {
     WebElement addToCart_xpath;
 
     @FindBy(id = "cartur")
-    WebElement clickonCart_id;
+    WebElement clickoncart_id;
 
 
     public ProductPage(WebDriver driver) {
@@ -74,7 +74,7 @@ public class ProductPage {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(productName_xpath));
         Assert.assertEquals(productName_xpath.getText(), product, "Product name does not match!");
         productName_xpath.click();
-        Thread.sleep(Long.parseLong("5000")); // Wait for the product details page to load
+        Thread.sleep(Long.parseLong("2000")); // Wait for the product details page to load
     }
 
     public void verifyproductname(String expectedProductType, String verifyproductnameName) {
@@ -86,16 +86,21 @@ public class ProductPage {
     public void clickonAddToCart() throws InterruptedException {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(addToCart_xpath));
         addToCart_xpath.click();
-        Thread.sleep(2000);
+        Thread.sleep(Long.parseLong("2000")); // Wait for the alert to appear
     }
 
     public void clickonCart() throws InterruptedException {
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(clickonCart_id));
-        clickonCart_id.click();
-        System.out.println("Clicked on cart to be redirected to the cart page");
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(clickoncart_id));
+        clickoncart_id.click();
+        System.out.println("Clicked on cart");
         Thread.sleep(2000);
-
     }
 
 
 }
+
+
+
+
+
+
