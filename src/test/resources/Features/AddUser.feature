@@ -1,4 +1,4 @@
-@AddUser
+g@AddUser
 Feature: User Table
 
   Scenario Outline: Add user to the table
