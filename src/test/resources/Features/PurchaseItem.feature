@@ -4,7 +4,8 @@ Feature: Purchase Item
   Scenario Outline: Purchase a laptop
     Given I am in the product store
     When I select a laptop from the product list
-    #And The user click add user
+    And  I select a laptop of my choice the laptop list
+    And I add the laptop to the cart
     #And The user validates that the add user form is displayed
    # When The user enters the firstName <firstName>
    # And The user enters the lastName <lastName>

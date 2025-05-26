@@ -15,8 +15,12 @@ public class HomePage {
 
     @FindBy(xpath = "//*[@id=\"nava\"]")
     WebElement ProductStore_xpath;
-    @FindBy(id = "itemc")
+    @FindBy(linkText = "Laptops")
     WebElement Laptop_xpath;
+    @FindBy(xpath = "//a[contains(text(),'Sony vaio i5')]")
+    WebElement Sonyvaioi5_xpath;
+    @FindBy(xpath = "//*[@id=\"tbodyid\"]/div[2]/div/a")
+    WebElement addToCart_xpath;
     public HomePage(WebDriver driver) {
         this.driver = driver;
     }
@@ -29,5 +33,12 @@ public class HomePage {
     public void clickLaptopsButton() {
         Laptop_xpath.click();
 
+    }
+    public void clickSonyVaioI5() {
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(Sonyvaioi5_xpath));
+        Sonyvaioi5_xpath.click();
+    }
+    public void clickAddToCart() {
+        addToCart_xpath.click();
     }
 }
