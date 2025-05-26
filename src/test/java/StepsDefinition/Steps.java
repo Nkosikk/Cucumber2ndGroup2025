@@ -1,7 +1,6 @@
 package StepsDefinition;
 
 
-
 import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Scenario;
@@ -136,8 +135,12 @@ public class Steps extends Base {
     public static void quitDriver() {
         if (driver != null) {
             driver.quit();
-            driver = null; // Reset instance to prevent reusing an invalid session
+            System.out.println("Driver has been quit successfully.");
+        } else {
+            System.out.println("Driver was not initialized.");
         }
-    }
 
+    }
 }
+
+
