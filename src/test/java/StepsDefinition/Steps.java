@@ -1,5 +1,6 @@
 package StepsDefinition;
 
+import Pages.CartPage;
 import Pages.HomePage;
 import Pages.LaptopPage;
 import io.cucumber.java.After;
@@ -65,7 +66,10 @@ public class Steps extends Base {
     }
     @And("I navigate to the cart")
     public void i_navigate_to_the_cart() {
-        homePage.clickCartButton();
+        driver.findElement(By.id("cartur")).click();
+        cartPage = new CartPage(driver);
+        Assert.assertTrue(cartPage.isCartPageDisplayed(), "Cart page is not displayed.");
+        cartPage.verifyCartIsEmpty();
 
     }
     @Then("I should see the laptop listed")

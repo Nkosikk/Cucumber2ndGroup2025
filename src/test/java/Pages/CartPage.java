@@ -20,4 +20,16 @@ public class CartPage {
     public void clickPlaceOrder() {
         driver.findElement(placeOrder).click();
     }
+
+    public boolean isCartPageDisplayed() {
+        return driver.getTitle().contains("Cart");
+    }
+
+    public void verifyCartIsEmpty() {
+        if (driver.findElements(cartItem).size() == 0) {
+            System.out.println("Cart is empty.");
+        } else {
+            System.out.println("Cart is not empty.");
+        }
+    }
 }

@@ -1,5 +1,6 @@
 package StepsDefinition;
 
+import Pages.CartPage;
 import Pages.HomePage;
 import Pages.LaptopPage;
 import Pages.ProductPage;
@@ -13,6 +14,7 @@ public class Base {
     WebDriver driver = browserFactory.startBrowser("chrome", "https://www.demoblaze.com/index.html");
     HomePage homePage = PageFactory.initElements(driver, HomePage.class);
     LaptopPage laptopPage = PageFactory.initElements(driver, LaptopPage.class);
-    ProductPage productPage = PageFactory.initElements(driver, ProductPage.class);
+    ProductPage addToCart = PageFactory.initElements(driver, ProductPage.class);
+    CartPage cartPage = PageFactory.initElements(driver, CartPage.class);
 
 }

@@ -16,7 +16,7 @@ public class HomePage {
     @FindBy(id = "nava")
     WebElement id_nava;
 
-    @FindBy(xpath = "//a[contains(text(),'Laptops')]")
+    @FindBy(linkText = "Laptops")
     WebElement laptopsCategory;
 
 
@@ -32,9 +32,4 @@ public class HomePage {
         laptopsCategory.click();
     }
 
-    public void clickCartButton() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement cartButton = wait.until(ExpectedConditions.elementToBeClickable(By.id("cartur")));
-        cartButton.click();
-    }
 }
