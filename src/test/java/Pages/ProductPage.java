@@ -19,8 +19,8 @@ public class ProductPage {
     @FindBy(id = "cat")
     WebElement category_id;
 
-    @FindBy(xpath = "//a[@class='list-group-item']")
-    List<WebElement> item_xpath;
+    @FindBy(id = "//a[@id = 'itemc']")
+    List<WebElement> item_id;
 
     @FindBy(xpath = "//*[@id=\"tbodyid\"]/div[3]/div/div/h4/a")
     WebElement productName_xpath;
@@ -50,16 +50,16 @@ public class ProductPage {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(category_id));
         Assert.assertTrue(category_id.isDisplayed());
         System.out.println("Categories are displayed");
-        for (WebElement item : item_xpath) {
+        for (WebElement item : item_id) {
             System.out.println("Category: " + item.getText());
         }
 
     }
 
     public void clickoncategoryproductType(String categories) throws InterruptedException {
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOfAllElements(item_xpath));
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOfAllElements(item_id));
         boolean found = false;
-        for (WebElement item : (item_xpath)) {
+        for (WebElement item : (item_id)) {
             if (item.getText().trim().equalsIgnoreCase(categories.trim())) {
                 item.click();
                 found = true;
