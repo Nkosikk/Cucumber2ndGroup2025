@@ -1,16 +1,12 @@
-package StepsDefinition;
-
-import Pages.AddUserPage;
-import Pages.UserTablePage;
-import Utils.BrowserFactory;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.chrome.ChromeDriver;
+
 
 public class Base {
+    protected static WebDriver driver;
 
-    BrowserFactory browserFactory = new BrowserFactory();
-    final WebDriver driver = browserFactory.startBrowser("chrome", "https://www.demoblaze.com/");
-    UserTablePage userTablePage = PageFactory.initElements(driver, UserTablePage.class);
-
-
+    public static void initializeDriver() {
+        System.setProperty("webdriver.chrome.driver", "path/to/chromedriver");
+        driver = new ChromeDriver();
+    }
 }

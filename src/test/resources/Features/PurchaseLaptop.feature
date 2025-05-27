@@ -1,7 +1,7 @@
 @PurchaseLaptop
-Feature: Purchase Journey on DemoBlaze
+Feature: Purchase Laptop  on DemoBlaze
 
-  Scenario: Verify the purchase journey
+  Scenario: Verify the purchase laptop
     Given I launch the DemoBlaze website
     Then I verify that I am in the product store
     When I click on "Laptops" under categories

@@ -8,23 +8,30 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class BrowserFactory {
 
-    static WebDriver driver;
+    public static WebDriver driver;
 
-    public static WebDriver startBrowser(String browserChoice, String url){
-        switch (browserChoice.toLowerCase()){
+    public static void initializeDriver(String browserChoice, String url) {
+        if (driver == null) {
+            startBrowser(browserChoice, url);
+        }
+    }
+
+    public static void startBrowser(String browserChoice, String url) {
+        switch (browserChoice.toLowerCase()) {
             case "chrome":
                 ChromeOptions chromeOptions = new ChromeOptions();
-                chromeOptions.addArguments("--headless");
                 driver = new ChromeDriver(chromeOptions);
                 break;
             case "firefox":
                 driver = new FirefoxDriver();
-            default:
+                break;
+            case "edge":
                 driver = new EdgeDriver();
                 break;
+            default:
+                throw new IllegalArgumentException("Unsupported browser: " + browserChoice);
         }
         driver.get(url);
         driver.manage().window().maximize();
-        return driver;
     }
 }
