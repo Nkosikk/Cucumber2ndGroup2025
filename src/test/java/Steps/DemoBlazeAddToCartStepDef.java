@@ -1,12 +1,20 @@
 package Steps;
 
+import io.cucumber.java.en.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
 public class DemoBlazeAddToCartStepDef {
 
 
     @Given("I click {string} under categories")
     public void i_click_under_categories(String string) {
         // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://www.demoblaze.com/index.html");
+        driver.manage().window().maximize();
+        driver.findElement(By.linkText(string)).click();
     }
     @When("I click on any laptop of my choice")
     public void i_click_on_any_laptop_of_my_choice() {
