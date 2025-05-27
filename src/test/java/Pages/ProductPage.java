@@ -19,8 +19,9 @@ public class ProductPage {
     @FindBy(id = "cat")
     WebElement category_id;
 
-    @FindBy(id = "//a[@id = 'itemc']")
+    @FindBy(xpath = "//a[@id = 'itemc'][2]")
     List<WebElement> item_id;
+
 
     @FindBy(xpath = "//*[@id=\"tbodyid\"]/div[3]/div/div/h4/a")
     WebElement productName_xpath;
@@ -28,7 +29,7 @@ public class ProductPage {
     @FindBy(className = "name")
     WebElement verifyproductname_name;
 
-    @FindBy(xpath = "//a[@class='btn.btn-success btn-lg']")
+    @FindBy(xpath = "//a[@class='btn btn-success btn-lg']")
     WebElement addToCart_xpath;
 
     @FindBy(id = "cartur")
@@ -36,7 +37,6 @@ public class ProductPage {
 
 
     public ProductPage(WebDriver driver) {
-
         this.driver = driver;
     }
 

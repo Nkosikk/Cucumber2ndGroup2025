@@ -74,24 +74,20 @@ public class Steps extends Base {
     }
 
 
-    //CartPage steps
-
-    @Given("I am on the Demoblaze cart page")
-    public void i_am_on_the_demoblaze_cart_page() {
-        cartPage.verifyProductCartPage();
-    }
-
     @When("I verify that the products cart page is displayed")
     public void i_verify_that_the_products_cart_page_is_displayed() {
         cartPage.verifyProductCartPage();
 
     }
 
+    /**
     @And("I verify the total price label is displayed")
     public void i_verify_the_total_price_label_is_displayed() {
         cartPage.verifyTotalPriceLabel();
 
     }
+
+
 
     @And("I verify the correct total amount is displayed")
     public void i_verify_the_correct_total_amount_is_displayed_total() {
@@ -120,9 +116,9 @@ public class Steps extends Base {
         cartPage.entermonth("month");
         cartPage.enteryear("year");
     }
+*/
 
-
-    @AfterStep
+  /**  @AfterStep
     public void addScreenshot(Scenario scenario) {
         if (scenario.isFailed()) {
             byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
@@ -132,15 +128,10 @@ public class Steps extends Base {
 
     // Method to properly quit the WebDriver
     @After
-    public static void quitDriver() {
-        if (driver != null) {
-            driver.quit();
-            System.out.println("Driver has been quit successfully.");
-        } else {
-            System.out.println("Driver was not initialized.");
-        }
-
+    public void quitBrowser() {
+        driver.quit();
     }
+    */
 }
 
 

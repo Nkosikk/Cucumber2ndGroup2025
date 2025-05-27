@@ -47,7 +47,7 @@ public class CartPage {
     @FindBy(id = "year")
     WebElement year_id;
 
-    public void CartPage(WebDriver driver) {
+    public CartPage(WebDriver driver) {
         this.driver = driver;
     }
 
@@ -69,7 +69,6 @@ public class CartPage {
     public void verifytotalprice() {
 
 
-
     }
 
     //Click on the place order button
@@ -87,39 +86,39 @@ public class CartPage {
     }
 
     //Fill in the name field in the place order popup.
-    public void entername(String name) {
+    public void enterName(String name) {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(name_id));
         name_id.sendKeys(name);
     }
 
     //Fill in the country field in the place order popup
 
-    public void entercountry(String country) {
+    public void enterCountry(String country) {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(country_id));
         country_id.sendKeys(country);
     }
 
     //Fill in the city field in the place order popup
-    public void entercity(String city) {
+    public void enterCity(String city) {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(city_id));
         city_id.sendKeys(city);
 
     }
 
     //Fill in the credit card field in the place order popup
-    public void entercreditcard(String card) {
+    public void enterCreditCard(String card) {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(card_id));
         card_id.sendKeys(card);
     }
 
     //Fill in the month field in the place order popup
-    public void entermonth(String month) {
+    public void enterMonth(String month) {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(month_id));
         month_id.sendKeys(month);
     }
 
     //Fill in the city field in the place order popup
-    public void enteryear(String year) {
+    public void enterYear(String year) {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(year_id));
         year_id.sendKeys(year);
     }
