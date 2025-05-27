@@ -11,6 +11,19 @@ Ensure the following are installed on your system:
 - **Maven 3.6 or higher**
 - **IntelliJ IDEA** (or any preferred IDE)
 
+## Prerequisites
+
+Ensure the following are installed on your system:
+- **Java 11 or higher**
+- **Maven 3.6 or higher**
+- **IntelliJ IDEA** (or any preferred IDE)
+
+## Setup Instructions
+
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd Cucumber2ndGroup2025
 ## Setup Instructions
 
 1. Clone the repository:

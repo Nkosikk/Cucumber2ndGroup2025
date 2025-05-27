@@ -1,19 +1,18 @@
-Feature: Product Store Purchasing a Laptop
+Feature: Laptop Purchase from Product Store
 
-  Scenario: Purchase a laptop from the product store
-    Given I verify that I am in the product store
-    When I click "Laptops" under categories
-    And I select a laptop of my choice
-    And I add the laptop to the cart
+  Scenario: Complete Laptop Purchase Flow with Excel Data Input
+    Given I launch the product store website
+    Then I should see the product store home page displayed
+    When I click on "Laptops" under categories
+    And I select any laptop from the list
+    And I add the selected laptop to the cart
     Then I should see a popup message "Product added"
-    And I click the "OK" button on the popup
+    And I accept the alert
     When I navigate to the cart
-    Then I verify the added laptop is available in the cart
-    When I place an order
-    And I click "Purchase" without filling in the information
-    Then I verify the error message is returned
-    And I click the "OK" button on the error message
-    ##fix
-    When I complete the Place Order screen with data from the Excel file
-    And I click "Purchase"
-    Then I verify that the order was successfully purchased
+    Then I should see the laptop is displayed in the cart
+    When I click on Place Order
+    And I click on Purchase without entering any data
+    Then I should see an error alert displayed
+    When I complete the place order form with data from Excel
+    And I click on Purchase
+    Then I should see a confirmation that the order was successfully placed

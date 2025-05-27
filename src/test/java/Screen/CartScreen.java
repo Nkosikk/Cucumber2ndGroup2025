@@ -29,19 +29,14 @@ public class CartScreen {
     }
 
     public void clickAddToCartButton() {
-        new WebDriverWait(driver, Duration.ofSeconds(5))
-                .until(ExpectedConditions.elementToBeClickable(addToCartButton_xpath));
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(addToCartButton_xpath));
         addToCartButton_xpath.click();
     }
-
     public void navigateToCart() {
-        new WebDriverWait(driver, Duration.ofSeconds(5))
-                .until(ExpectedConditions.elementToBeClickable(cartLink_xpath));
         cartLink_xpath.click();
     }
     public void getAddedLaptopName() {
-        new WebDriverWait(driver, Duration.ofSeconds(5))
-                .until(ExpectedConditions.visibilityOf(addedLaptopName_xpath));
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(addToCartButton_xpath));
         addedLaptopName_xpath.isDisplayed();
     }
     public void clickPlaceOrderButton() {

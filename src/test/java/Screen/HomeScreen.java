@@ -29,7 +29,7 @@ public class HomeScreen {
                 .until(ExpectedConditions.visibilityOf(productStore_id));
         productStore_id.isDisplayed();
     }
-    public void clickLaptopsCategory() {
+    public void clickLaptopsCategory(String laptopCategory) {
         new WebDriverWait(driver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.elementToBeClickable(laptopsCategory_xpath));
         laptopsCategory_xpath.click();
