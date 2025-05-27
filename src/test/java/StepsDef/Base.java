@@ -1,16 +1,18 @@
-package StepsDefinition;
+package StepsDef;
 
-import Pages.AddUserPage;
-import Pages.UserTablePage;
-import Utils.BrowserFactory;
+
+import Screen.CartScreen;
+import Screen.HomeScreen;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import utilities.BrowserFactory;
+
 
 public class Base {
 
     BrowserFactory browserFactory = new BrowserFactory();
     final WebDriver driver = browserFactory.startBrowser("chrome", "https://www.way2automation.com/angularjs-protractor/webtables/");
-    UserTablePage userTablePage = PageFactory.initElements(driver, UserTablePage.class);
-    AddUserPage addUserPage = PageFactory.initElements(driver, AddUserPage.class);
+    HomeScreen homeScreen = PageFactory.initElements(driver, HomeScreen.class);
+    CartScreen cartScreen = PageFactory.initElements(driver, CartScreen.class);
 
 }
