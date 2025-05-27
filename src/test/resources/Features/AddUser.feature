@@ -15,3 +15,4 @@ Feature: User Table
     Examples:
         | firstName | lastName |
         | John      | Cele     |
+
