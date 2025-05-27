@@ -6,14 +6,18 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
         features = "src/test/resources/Features",
         glue = {"StepsDefinition"},
-        plugin = {"pretty", "html:Reports/cucumber-reports.html", "json:target/cucumber.json",
-                "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
+        plugin = {
+                "pretty",
+                "html:Reports/cucumber-reports.html",
+                "json:target/cucumber.json",
+                "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
+        },
         monochrome = true,
-//        tags = "@AddUser",
+        // tags = "@AddUser",  // optional: use if running only specific tagged scenarios
         publish = true
 )
-
 public class RunnerTest extends AbstractTestNGCucumberTests {
 }
+
 
 //
