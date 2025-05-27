@@ -23,7 +23,7 @@ public class CartPage {
     @FindBy(id = "totalp")
     WebElement totalprice_id;
 
-    @FindBy(className = "btn btn-success")
+    @FindBy(xpath = "//button[@class = 'btn btn-success']")
     WebElement placeorderbutton_name;
 
     @FindBy(id = "orderModalLabel")

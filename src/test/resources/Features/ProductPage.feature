@@ -11,11 +11,11 @@ Feature: Demoblaze
     Then I verify the product added pop up is displayed
     Then I click on cart to be redirected to the cart page
     When I verify that the products cart page is displayed
- #   And I verify the total price label is displayed
-#    And I verify the correct total amount is displayed
-#    And I click on the place order button
-#    And I verify that the place order pop up is displayed
-#    And I fill in the order details with name "<name>", country "<country>", city "<city>", credit card "<credit card>", month "<month>", year "<year>"
+    And I verify the total price label is displayed
+    And I verify the correct total amount is displayed
+    And I click on the place order button
+    And I verify that the place order pop up is displayed
+    And I fill in the order details with name "<name>", country "<country>", city "<city>", credit card "<credit card>", month "<month>", year "<year>"
 
     Examples:
 

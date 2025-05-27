@@ -22,7 +22,6 @@ public class ProductPage {
     @FindBy(xpath = "//a[@id = 'itemc'][2]")
     List<WebElement> item_id;
 
-
     @FindBy(xpath = "//*[@id=\"tbodyid\"]/div[3]/div/div/h4/a")
     WebElement productName_xpath;
 

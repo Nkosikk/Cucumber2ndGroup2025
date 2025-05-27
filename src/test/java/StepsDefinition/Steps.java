@@ -80,7 +80,7 @@ public class Steps extends Base {
 
     }
 
-    /**
+
     @And("I verify the total price label is displayed")
     public void i_verify_the_total_price_label_is_displayed() {
         cartPage.verifyTotalPriceLabel();
@@ -107,18 +107,18 @@ public class Steps extends Base {
 
     }
 
-    @And("I fill in the order details with name {string}, country {string}, city {string}, credit card {string}, month {string}, year {string}")
+    @And("I fill in the order details with name (.*)$, country {string}, city {string}, credit card {string}, month {string}, year {string}")
     public void i_fill_in_the_order_details_with_name_name_country_country_city_city_credit_card_credit_card_month_month_year_year() {
-        cartPage.entername("name");
-        cartPage.entercountry("country");
-        cartPage.entercity("city");
-        cartPage.entercreditcard("card");
-        cartPage.entermonth("month");
-        cartPage.enteryear("year");
+        cartPage.enterName("name");
+        cartPage.enterCountry("country");
+        cartPage.enterCity("city");
+        cartPage.enterCreditCard("card");
+        cartPage.enterMonth("month");
+        cartPage.enterYear("year");
     }
-*/
 
-  /**  @AfterStep
+
+    @AfterStep
     public void addScreenshot(Scenario scenario) {
         if (scenario.isFailed()) {
             byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
@@ -131,7 +131,7 @@ public class Steps extends Base {
     public void quitBrowser() {
         driver.quit();
     }
-    */
+
 }
 
 
