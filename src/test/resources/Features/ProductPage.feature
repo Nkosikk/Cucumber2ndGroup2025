@@ -15,12 +15,20 @@ Feature: Demoblaze
     And I verify the correct total amount is displayed
     And I click on the place order button
     And I verify that the place order pop up is displayed
-    And I fill in the order details with name "<name>", country "<country>", city "<city>", credit card "<credit card>", month "<month>", year "<year>"
+    And I fill in the order details with name "<name>"
+    And I fill in the order details with country "<country>"
+    And I fill in the order details with city "<city>"
+    And I fill in the order details with credit card "<credit card>"
+    And I fill in the order details with month "<month>"
+    And I fill in the order details with year "<year>"
+    And I click on the purchase button
+   # Then I verify that the thank you pop up is displayed
+
 
     Examples:
 
-      | categories | product type |  | name     | country      | city      | credit card  | month  | year |
-      | Laptops    | MacBook air  |  | Precious | South Africa | Cape Town | 139955440052 | August | 2025 |
+      | categories | product type |  | name | country | city | credit card | month | year |
+      | Laptops    | MacBook air  |  |      |         |      |             |       |      |
 
 
 

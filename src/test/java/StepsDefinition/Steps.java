@@ -107,15 +107,41 @@ public class Steps extends Base {
 
     }
 
-    @And("I fill in the order details with name (.*)$, country {string}, city {string}, credit card {string}, month {string}, year {string}")
-    public void i_fill_in_the_order_details_with_name_name_country_country_city_city_credit_card_credit_card_month_month_year_year() {
-        cartPage.enterName("name");
-        cartPage.enterCountry("country");
-        cartPage.enterCity("city");
-        cartPage.enterCreditCard("card");
-        cartPage.enterMonth("month");
-        cartPage.enterYear("year");
+    @And("I fill in the order details with name {string}")
+    public void i_fill_in_the_order_details_with_name_name(String name) {
+        cartPage.enterName(name);
     }
+
+    @And("I fill in the order details with country {string}")
+    public void i_fill_in_the_order_details_with_country_country(String country) {
+        cartPage.enterCountry(country);
+    }
+
+    @And("I fill in the order details with city {string}")
+    public void i_fill_in_the_order_details_with_city_city(String city) {
+        cartPage.enterCity(city);
+    }
+
+    @And("I fill in the order details with credit card {string}")
+    public void i_fill_in_the_order_details_with_credit_card_card(String card) {
+        cartPage.enterCreditCard(card);
+    }
+
+    @And("I fill in the order details with month {string}")
+    public void i_fill_in_the_order_details_with_month_month(String month) {
+        cartPage.enterMonth(month);
+    }
+
+    @And("I fill in the order details with year {string}")
+    public void i_fill_in_the_order_details_with_year_year(String year) {
+        cartPage.enterYear(year);
+    }
+
+    @And("I click on the purchase button")
+    public void i_click_on_the_purchase_button() throws InterruptedException {
+        cartPage.clickPlaceOrderButton();
+    }
+
 
 
     @AfterStep

@@ -1,5 +1,6 @@
 package Pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -46,6 +47,9 @@ public class CartPage {
 
     @FindBy(id = "year")
     WebElement year_id;
+
+    @FindBy(xpath = "//*[@id=\"signInModal\"]/div/div/div[3]/button[2]")
+    WebElement placeorderbutton_xpath;
 
     public CartPage(WebDriver driver) {
         this.driver = driver;
@@ -121,6 +125,14 @@ public class CartPage {
     public void enterYear(String year) {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(year_id));
         year_id.sendKeys(year);
+    }
+
+    //Click on the place order button in the place order popup
+    public void clickPlaceOrderButton() throws InterruptedException {
+        new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.elementToBeClickable((placeorderbutton_xpath)));
+        placeorderbutton_xpath.click();
+        System.out.println("Place order button in the popup clicked.");
+        Thread.sleep(2000); // Wait for the confirmation alert to appear
     }
 
 
