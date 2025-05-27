@@ -9,8 +9,8 @@ import org.openqa.selenium.support.PageFactory;
 public class Base {
 
     BrowserFactory browserFactory = new BrowserFactory();
-    final WebDriver driver = browserFactory.startBrowser("chrome", "https://www.way2automation.com/angularjs-protractor/webtables/");
+    final WebDriver driver = browserFactory.startBrowser("chrome", "https://www.demoblaze.com/");
     UserTablePage userTablePage = PageFactory.initElements(driver, UserTablePage.class);
-    AddUserPage addUserPage = PageFactory.initElements(driver, AddUserPage.class);
+
 
 }
