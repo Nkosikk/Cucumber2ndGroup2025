@@ -1,43 +1,67 @@
 package StepsDefinition;
 
 import io.cucumber.java.en.*;
+import org.openqa.selenium.Alert;
 
 public class BlazeSteps extends Base {
 
-    @Given("I am on the demo blaze home page")
-    public void i_am_on_the_demo_blaze_home_page() {
+
+    @Given("I am on the demo blaze product page")
+    public void i_am_on_the_demo_blaze_product_page() {
+        driver.get("https://www.demoblaze.com/index.html");
+        productPage.verifyProductPageIsDisplayed();
 
     }
+
     @And("I select a product category")
     public void i_select_a_product_category() {
+        productPage.selectProductCategory();
 
     }
 
     @When("I select a product from the category")
     public void i_select_a_product_from_the_category() {
+        productPage.selectProductFromCategory();
+
 
     }
 
     @And("I validate the product details")
     public void i_validate_the_product_details() {
+        productPage.verifyProductDetails();
 
     }
+
     @And("I click on add to cart button")
     public void i_click_on_add_to_cart_button() {
+        productPage.clickAddToCartButton();
 
     }
-    @And("I verify the product is added to cart popup")
-    public void i_verify_the_product_is_added_to_cart_popup() {
 
+    @Then("I should see a popup confirming the product has been added to the cart")
+    public void iShouldSeeAPopupConfirmingTheProductHasBeenAddedToTheCart() {
+        // Assuming there's a method to handle the alert popup
+        Alert alert = driver.switchTo().alert();
+        String alertText = alert.getText();
+        if (!alertText.contains("Product added")) {
+            throw new AssertionError("Expected product added confirmation, but got: " + alertText);
+        }
+        alert.accept(); // Click OK on the alert popup
     }
+
+
     @And("click OK button on the popup")
     public void click_ok_button_on_the_popup() {
+        productPage.handleAddToCartPopup();
 
     }
+
     @And("I click on cart button")
     public void i_click_on_cart_button() {
+        productPage.clickCartButton();
 
     }
+
     @And("verify that selected product is in the cart")
     public void verify_that_selected_product_is_in_the_cart() {
 
@@ -66,4 +90,6 @@ public class BlazeSteps extends Base {
     public void i_should_see_the_purchase_confirmation_message() {
 
     }
+
+
 }

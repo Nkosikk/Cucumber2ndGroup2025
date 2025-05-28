@@ -2,12 +2,12 @@
 Feature: Demo blaze purchase process
 
   Scenario: As a user I want to purchase a laptop from demo blaze
-    Given I am on the demo blaze home page
+    Given I am on the demo blaze product page
     And I select a product category
     When I select a product from the category
     And I validate the product details
     And I click on add to cart button
-    And I verify the product is added to cart popup
+    Then I should see a popup confirming the product has been added to the cart
     And click OK button on the popup
     And I click on cart button
     And verify that selected product is in the cart
