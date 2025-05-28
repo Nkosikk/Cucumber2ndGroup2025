@@ -40,9 +40,14 @@ public class Steps extends Base {
         String Username=firstName+lastName+randomNumber;
         addUserPage.enterUserName(Username);
     }
+    @When("The user enters the password (.*)$")
+    public void the_user_enters_the_password_password(String password) {
+        addUserPage.enterPassword(password);
+    }
 
-//    @After
-//    public void quitBrowser() {
-//        driver.quit();
-//    }
+
+
 }
+
+
+

@@ -21,7 +21,9 @@ public class AddUserPage {
     WebElement lastNameField_xpath;
 
     @FindBy(name = "UserName")
-    WebElement userNameField_xpath;
+    WebElement userNameField_Name;
+    @FindBy(name = "Password")
+    WebElement passwordField_Name;
 
     public void verifyAddUserPageIsDisplayed() {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(addUserPage_xpath));
@@ -37,6 +39,12 @@ public class AddUserPage {
     }
 
     public void enterUserName(String username) {
-        userNameField_xpath.sendKeys(username);
+        userNameField_Name.sendKeys(username);
+    }
+    public void enterPassword(String password) {
+        // Assuming there is a password field, you can add the implementation here
+        // Example:
+        // WebElement passwordField = driver.findElement(By.name("Password"));
+        passwordField_Name.sendKeys(password);
     }
 }
