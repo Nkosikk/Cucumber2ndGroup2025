@@ -30,7 +30,6 @@ public class ProductPage extends Base {
 
 
 
-
     public ProductPage(WebDriver driver) {
         this.driver = driver;
     }
