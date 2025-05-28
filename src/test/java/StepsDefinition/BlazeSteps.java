@@ -8,8 +8,8 @@ public class BlazeSteps extends Base {
     public void i_am_on_the_demo_blaze_home_page() {
 
     }
-    @And("I select a product category (.*)")
-    public void i_select_a_product_category(String category) {
+    @And("I select a product category")
+    public void i_select_a_product_category() {
 
     }
 
