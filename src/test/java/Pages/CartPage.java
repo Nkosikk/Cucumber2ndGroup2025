@@ -2,34 +2,41 @@ package Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class CartPage {
 
     WebDriver driver;
-    By cartItem = By.cssSelector("#tbodyid > tr");
-    By placeOrder = By.xpath("//button[text()='Place Order']");
+
 
     public CartPage(WebDriver driver) {
+
         this.driver = driver;
     }
+//
+//    public void deleteOneLaptop() {
+//        driver.findElement(By.xpath("(//a[text()='Delete'])[1]")).click();
+//    }
+//    public void oneLaptopIsDeleted() {
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("(//a[text()='Delete'])[1]")));
+//    }
 
-    public boolean isLaptopPresentInCart() {
-        return driver.findElements(cartItem).size() > 0;
+    public boolean isLaptopListed() {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//td[contains(text(),'MacBook Pro')]")));
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     public void clickPlaceOrder() {
-        driver.findElement(placeOrder).click();
-    }
-
-    public boolean isCartPageDisplayed() {
-        return driver.getTitle().contains("Cart");
-    }
-
-    public void verifyCartIsEmpty() {
-        if (driver.findElements(cartItem).size() == 0) {
-            System.out.println("Cart is empty.");
-        } else {
-            System.out.println("Cart is not empty.");
-        }
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[contains(text(),'Place Order')]"))).click();
     }
 }

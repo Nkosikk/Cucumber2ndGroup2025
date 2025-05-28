@@ -16,7 +16,7 @@ public class HomePage {
     @FindBy(id = "nava")
     WebElement id_nava;
 
-    @FindBy(linkText = "Laptops")
+    @FindBy(xpath = "//a[contains(text(),'Laptops')]")
     WebElement laptopsCategory;
 
 

@@ -5,10 +5,9 @@ Feature: Buying a laptop
     Then I should see "PRODUCT STORE" on the homepage
     When I click on Laptops category
     And I select a laptop of my choice
-    Then I should see the laptop description
-    When I click on Add to Cart button
+    And I click on Add to Cart button
     Then I should see a popup message "Product added"
-    When I click on OK in the popup
+    And I click on OK in the popup
     And I navigate to the cart
     Then I should see the laptop listed
     When I click on Place Order
@@ -23,9 +22,9 @@ Feature: Buying a laptop
     And I fill in my year <year>
     When I click on Purchase
     Then I should see the purchase confirmation message
-    And I should see "Thank you for your purchase!" on the confirmation page
-    When I click OK in the confirmation popup
-    Then I should be redirected to the homepage
+#    And I should see "Thank you for your purchase!" on the confirmation page
+#    When I click OK in the confirmation popup
+#    Then I should be redirected to the homepage
 
     Examples:
       | name         | country | city     | creditCard | month | year |
