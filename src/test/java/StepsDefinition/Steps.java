@@ -138,7 +138,7 @@ public class Steps extends Base {
     }
 
     @And("I click on the purchase button")
-    public void i_click_on_the_purchase_button() throws InterruptedException {
+    public void i_click_on_the_purchase_button() {
         cartPage.clickPlaceOrderButton();
     }
 

@@ -27,8 +27,8 @@ Feature: Demoblaze
 
     Examples:
 
-      | categories | product type |  | name | country | city | credit card | month | year |
-      | Laptops    | MacBook air  |  |      |         |      |             |       |      |
+      | categories | product type |  | name     | country      | city | credit card         | month | year |
+      | Laptops    | MacBook air  |  | Precious | South Africa | JHB  | 1245 5555 4444 8752 | Jan   | 2000 |
 
 
 

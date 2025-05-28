@@ -48,7 +48,7 @@ public class CartPage {
     @FindBy(id = "year")
     WebElement year_id;
 
-    @FindBy(xpath = "//*[@id=\"signInModal\"]/div/div/div[3]/button[2]")
+    @FindBy(xpath = "//*[@id=\"orderModal\"]/div/div/div[3]/button[2]")
     WebElement placeorderbutton_xpath;
 
     public CartPage(WebDriver driver) {
@@ -128,11 +128,12 @@ public class CartPage {
     }
 
     //Click on the place order button in the place order popup
-    public void clickPlaceOrderButton() throws InterruptedException {
-        new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.elementToBeClickable((placeorderbutton_xpath)));
+    public void clickPlaceOrderButton() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(placeorderbutton_xpath));
         placeorderbutton_xpath.click();
         System.out.println("Place order button in the popup clicked.");
-        Thread.sleep(2000); // Wait for the confirmation alert to appear
+
     }
 
 
