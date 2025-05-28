@@ -9,25 +9,25 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class UserTablePage {
-
-    WebDriver driver;
-
-    @FindBy(xpath = "//span[contains(.,'First Name')]")
-    WebElement firstNameLabel_xpath;
-    @FindBy(xpath = "//button[contains(.,'Add User')]")
-    WebElement addUserButton_xpath;
-    public UserTablePage(WebDriver driver) {
-        this.driver = driver;
-    }
-
-    public void verifyUserTableIsDisplayed(){
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(firstNameLabel_xpath));
-        firstNameLabel_xpath.isDisplayed();
-
-    }
-    public void clickAddUserButton() {
-        addUserButton_xpath.click();
-
-    }
-}
+//public class UserTablePage {
+//
+//    WebDriver driver;
+//
+//    @FindBy(xpath = "//span[contains(.,'First Name')]")
+//    WebElement firstNameLabel_xpath;
+//    @FindBy(xpath = "//button[contains(.,'Add User')]")
+//    WebElement addUserButton_xpath;
+//    public UserTablePage(WebDriver driver) {
+//        this.driver = driver;
+//    }
+//
+//    public void verifyUserTableIsDisplayed(){
+//        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(firstNameLabel_xpath));
+//        firstNameLabel_xpath.isDisplayed();
+//
+//    }
+//    public void clickAddUserButton() {
+//        addUserButton_xpath.click();
+//
+//    }
+//}
