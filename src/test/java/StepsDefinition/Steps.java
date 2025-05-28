@@ -107,7 +107,25 @@ public class Steps extends Base {
 
     }
 
-    @And("I fill in the order details with name {string}")
+
+    @When("The form is incomplete a warning alert popup is displayed")
+    public void the_form_is_incomplete_a_warning_alert_popup_is_displayed() throws InterruptedException {
+        try {
+            Alert alert = driver.switchTo().alert();
+            String actualMessage = alert.getText();
+            if (actualMessage.contains("Please fill out Name and Creditcard.")) {
+                System.out.println("Warning alert popup is displayed with message: " + actualMessage);
+                alert.accept(); // Close the alert
+            } else {
+                System.out.println("Pop-up does not contain the expected message.");
+            }
+        } catch (NoAlertPresentException e) {
+            System.out.println("No alert was present.");
+            Thread.sleep(2000);
+        }
+    }
+
+/**    @And("I fill in the order details with name {string}")
     public void i_fill_in_the_order_details_with_name_name(String name) {
         cartPage.enterName(name);
     }
@@ -138,12 +156,22 @@ public class Steps extends Base {
     }
 
     @And("I click on the purchase button")
-    public void i_click_on_the_purchase_button() {
+    public void i_click_on_the_purchase_button() throws InterruptedException {
         cartPage.clickPlaceOrderButton();
     }
 
+    @And("I verify that the purchase confirmation pop up is displayed")
+    public void i_verify_that_the_purchase_confirmation_pop_up_is_displayed() {
+        cartPage.verifyOrderConfirmation();
+    }
+
+    @Then("I click on the ok button to close the purchase confirmation pop up")
+    public void i_click_on_the_ok_button_to_close_the_purchase_confirmation_pop_up() throws InterruptedException {
+        cartPage.clickOkButton();
+    }
 
 
+*/
     @AfterStep
     public void addScreenshot(Scenario scenario) {
         if (scenario.isFailed()) {

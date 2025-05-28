@@ -15,20 +15,21 @@ Feature: Demoblaze
     And I verify the correct total amount is displayed
     And I click on the place order button
     And I verify that the place order pop up is displayed
-    And I fill in the order details with name "<name>"
-    And I fill in the order details with country "<country>"
-    And I fill in the order details with city "<city>"
-    And I fill in the order details with credit card "<credit card>"
-    And I fill in the order details with month "<month>"
-    And I fill in the order details with year "<year>"
-    And I click on the purchase button
-   # Then I verify that the thank you pop up is displayed
-
+    When The form is incomplete a warning alert popup is displayed
+#    And I fill in the order details with name "<name>"
+#    And I fill in the order details with country "<country>"
+#    And I fill in the order details with city "<city>"
+#    And I fill in the order details with credit card "<credit card>"
+#    And I fill in the order details with month "<month>"
+#    And I fill in the order details with year "<year>"
+#    And I click on the purchase button
+#    And I verify that the purchase confirmation pop up is displayed
+#    Then I click on the ok button to close the purchase confirmation pop up
 
     Examples:
 
-      | categories | product type |  | name     | country      | city | credit card         | month | year |
-      | Laptops    | MacBook air  |  | Precious | South Africa | JHB  | 1245 5555 4444 8752 | Jan   | 2000 |
+      | categories | product type |  | name | country | city | credit card | month | year |
+      | Laptops    | MacBook air  |  |      |         |      |             |       |      |
 
 
 

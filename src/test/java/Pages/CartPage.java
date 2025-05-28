@@ -51,6 +51,12 @@ public class CartPage {
     @FindBy(xpath = "//*[@id=\"orderModal\"]/div/div/div[3]/button[2]")
     WebElement placeorderbutton_xpath;
 
+    @FindBy(xpath = "/html/body/div[10]/h2")
+    WebElement orderconfirmation_xpath;
+
+    @FindBy(xpath = "//button[@class='confirm btn btn-lg btn-primary']")
+    WebElement okButton_xpath;
+
     public CartPage(WebDriver driver) {
         this.driver = driver;
     }
@@ -128,12 +134,28 @@ public class CartPage {
     }
 
     //Click on the place order button in the place order popup
-    public void clickPlaceOrderButton() {
+    public void clickPlaceOrderButton() throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(placeorderbutton_xpath));
         placeorderbutton_xpath.click();
         System.out.println("Place order button in the popup clicked.");
+        Thread.sleep(2000);
 
+    }
+
+    //Verify that the order confirmation message is displayed
+    public void verifyOrderConfirmation() {
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(orderconfirmation_xpath));
+        Assert.assertTrue(orderconfirmation_xpath.isDisplayed());
+        System.out.println("Order confirmation message: " + orderconfirmation_xpath.getText());
+    }
+
+    //Click on the OK button in the order confirmation popup
+    public void clickOkButton() throws InterruptedException {
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(okButton_xpath));
+        okButton_xpath.click();
+        System.out.println("OK button clicked in the order confirmation popup.");
+        Thread.sleep(2000);
     }
 
 
