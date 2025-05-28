@@ -17,6 +17,7 @@ public class CartScreen {
 
     @FindBy(xpath = "//a[@onclick='showcart()']")
     WebElement cartLink_xpath;
+    ////*[@id="navbarExample"]/ul/li[4]/a
     @FindBy(xpath = "//*[@id='tbodyid']/tr/td[2]")
     WebElement addedLaptopName_xpath;
 
@@ -35,9 +36,12 @@ public class CartScreen {
     public void navigateToCart() {
         cartLink_xpath.click();
     }
-    public void getAddedLaptopName() {
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(addToCartButton_xpath));
-        addedLaptopName_xpath.isDisplayed();
+    public String getAddedLaptopName() {
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.visibilityOf(addedLaptopName_xpath));
+        String laptopName = addedLaptopName_xpath.getText();
+        System.out.println("Laptop Name in Cart: " + laptopName);
+        return laptopName;
     }
     public void clickPlaceOrderButton() {
         new WebDriverWait(driver, Duration.ofSeconds(5))

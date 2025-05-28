@@ -1,8 +1,7 @@
 Feature: Laptop Purchase from Product Store
 
   Scenario: Complete Laptop Purchase Flow with Excel Data Input
-    Given I launch the product store website
-    Then I should see the product store home page displayed
+    Given I should see the product store home page displayed
     When I click on "Laptops" under categories
     And I select any laptop from the list
     And I add the selected laptop to the cart

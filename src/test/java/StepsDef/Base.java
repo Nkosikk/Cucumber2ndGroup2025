@@ -3,7 +3,7 @@ package StepsDef;
 
 import Screen.CartScreen;
 import Screen.HomeScreen;
-import Utils.BrowserFactory;
+import utilities.BrowserFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
