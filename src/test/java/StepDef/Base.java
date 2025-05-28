@@ -1,4 +1,4 @@
-package Steps;
+package StepDef;
 
 public class TheBase {
 }
