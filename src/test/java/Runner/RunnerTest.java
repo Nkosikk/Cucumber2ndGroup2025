@@ -5,11 +5,11 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
         features = "src/test/resources/Features/blaze_assessment.feature",
-        glue = {"StepsDefinition"},
+        glue = {"StepsDefinition.BlazeSteps"},
         plugin = {"pretty", "html:target/cucumber-reports.html", "json:target/cucumber.json"},
         //monochrome = true,
-        tags = ""
+        tags = "@Assessment"
 )
 
-public class Runner extends AbstractTestNGCucumberTests {
+public class RunnerTest extends AbstractTestNGCucumberTests {
 }

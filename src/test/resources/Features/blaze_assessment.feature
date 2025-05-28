@@ -1,7 +1,7 @@
 @Assessment
 Feature: Demo blaze purchase process
 
-  Scenario: As a user I want to purchase a laptop from demo blaze
+  Scenario Outline: As a user I want to purchase a laptop from demo blaze
     Given I am on the demo blaze product page
     And I select a product category
     When I select a product from the category
@@ -18,6 +18,6 @@ Feature: Demo blaze purchase process
     And I click on purchase button again
     Then I should see the purchase confirmation message
 
-
+Examples:
 
 

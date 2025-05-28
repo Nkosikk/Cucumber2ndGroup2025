@@ -63,15 +63,24 @@ public class ProductPage extends Base {
     }
 
     //Handling the popup after adding to cart
-    public void handleAddToCartPopup() {
-        WebElement popup = driver.findElement(By.id("cartModal")); // adjust selector as needed
-        if (popup.isDisplayed()) {
-            WebElement okButton = popup.findElement(By.xpath("//button[text()='OK']"));
-            okButton.click();
-        } else {
-            throw new AssertionError("Add to cart popup did not appear!");
+    public void handleAddToCartAlert() {
+        Alert alert = driver.switchTo().alert();
+        String alertText = alert.getText();
+        if (!alertText.contains("Product added")) {
+            throw new AssertionError("Expected product added confirmation, but got: " + alertText);
         }
+        alert.accept();
     }
+
+//    public void handleAddToCartPopup() {
+//        WebElement popup = driver.findElement(By.id("cartModal")); // adjust selector as needed
+//        if (popup.isDisplayed()) {
+//            WebElement okButton = popup.findElement(By.xpath("//button[text()='OK']"));
+//            okButton.click();
+//        } else {
+//            throw new AssertionError("Add to cart popup did not appear!");
+//        }
+//    }
 
     public void clickCartButton() {
         cartButton_xpath.click();

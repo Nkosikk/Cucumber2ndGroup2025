@@ -40,6 +40,12 @@ public class BlazeSteps extends Base {
 
     @Then("I should see a popup confirming the product has been added to the cart")
     public void iShouldSeeAPopupConfirmingTheProductHasBeenAddedToTheCart() {
+
+    }
+
+
+    @And("click OK button on the popup")
+    public void click_ok_button_on_the_popup() {
         // Assuming there's a method to handle the alert popup
         Alert alert = driver.switchTo().alert();
         String alertText = alert.getText();
@@ -47,12 +53,6 @@ public class BlazeSteps extends Base {
             throw new AssertionError("Expected product added confirmation, but got: " + alertText);
         }
         alert.accept(); // Click OK on the alert popup
-    }
-
-
-    @And("click OK button on the popup")
-    public void click_ok_button_on_the_popup() {
-        productPage.handleAddToCartPopup();
 
     }
 
