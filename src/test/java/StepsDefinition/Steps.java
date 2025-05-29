@@ -59,7 +59,7 @@ public class Steps extends Base {
 
     @After
     public void quitBrowser() {
-//        driver.quit();
+        driver.quit();
     }
 
     @And("The user enters the password {}")
