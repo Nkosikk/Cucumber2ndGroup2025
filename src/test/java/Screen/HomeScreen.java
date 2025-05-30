@@ -9,37 +9,39 @@ import org.openqa.selenium.support.ui.*;
 import java.time.Duration;
 
 public class HomeScreen {
+
     WebDriver driver;
+    @FindBy(xpath = "//*[@id='nava']") WebElement productStore_xpath;
 
-    @FindBy(xpath = "//a[@id='nava']")
-    WebElement productStore_id;
+    @FindBy(xpath = "//a[text()='Laptops']") WebElement laptopsCategory_xpath;
 
-    @FindBy(xpath = "//a[@onclick=\"byCat('notebook')\"]")
-    WebElement laptopsCategory_xpath;
-
-    @FindBy(xpath = "//*[@id=\"tbodyid\"]/div[1]/div/a/img")
-    WebElement cartLink_id;
+    @FindBy(xpath = "//a[text()='Sony vaio i5']") WebElement laptop_xpath;
 
     public HomeScreen(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
+
     public void verifyTheProductStoreIsDisplayed() {
-        new WebDriverWait(driver, Duration.ofSeconds(10))
-                .until(ExpectedConditions.visibilityOf(productStore_id));
-        productStore_id.isDisplayed();
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(
+                ExpectedConditions.visibilityOf(productStore_xpath)
+        );
+        productStore_xpath.isDisplayed();
     }
-    public void clickLaptopsCategory(String laptopCategory) {
-        new WebDriverWait(driver, Duration.ofSeconds(5))
-                .until(ExpectedConditions.elementToBeClickable(laptopsCategory_xpath));
+
+    public String arg0;
+    public void clickLaptopsCategory(String arg0) {
+        this.arg0 = arg0;
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(
+                ExpectedConditions.visibilityOf(laptopsCategory_xpath)
+        );
         laptopsCategory_xpath.click();
     }
+
     public void selectLaptop() {
-        new WebDriverWait(driver, Duration.ofSeconds(5))
-                .until(ExpectedConditions.elementToBeClickable(cartLink_id));
-        cartLink_id.click();
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(
+                ExpectedConditions.elementToBeClickable(laptop_xpath)
+        );
+        laptop_xpath.click();
     }
 }
-
-
-

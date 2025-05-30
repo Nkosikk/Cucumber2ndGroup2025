@@ -11,41 +11,50 @@ import java.time.Duration;
 
 public class CartScreen {
     WebDriver driver;
+    @FindBy(xpath = "//a[text()='Add to cart']") WebElement addToCartButton;
 
-    @FindBy(xpath = "//*[@onclick='addToCart(8)']")
-    WebElement addToCartButton_xpath;
+    @FindBy(linkText = "Cart") WebElement cartLink;
 
-    @FindBy(xpath = "//a[@onclick='showcart()']")
-    WebElement cartLink_xpath;
-    ////*[@id="navbarExample"]/ul/li[4]/a
-    @FindBy(xpath = "//*[@id='tbodyid']/tr/td[2]")
-    WebElement addedLaptopName_xpath;
+    @FindBy(xpath = "//*[@id='tbodyid']") WebElement addedLaptopName;
 
-    @FindBy(xpath = "//button[text()='Place Order']")
-    WebElement placeOrderButton_xpath;
+    @FindBy(xpath = "//button[@data-toggle='modal']") WebElement placeOrderButton;
 
+    // Constructor
     public CartScreen(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
     public void clickAddToCartButton() {
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(addToCartButton_xpath));
-        addToCartButton_xpath.click();
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(
+                ExpectedConditions.elementToBeClickable(addToCartButton)
+        );
+        addToCartButton.click();
     }
+    public String expectedText;
+    public void assertTextIsDisplayedAndAccept(String expectedText) {
+        this.expectedText = expectedText;
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(
+                ExpectedConditions.alertIsPresent()
+        );
+        driver.switchTo().alert().accept();
+    }
+
     public void navigateToCart() {
-        cartLink_xpath.click();
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(
+                ExpectedConditions.elementToBeClickable(cartLink)
+        );
+        cartLink.click();
     }
-    public String getAddedLaptopName() {
-        new WebDriverWait(driver, Duration.ofSeconds(10))
-                .until(ExpectedConditions.visibilityOf(addedLaptopName_xpath));
-        String laptopName = addedLaptopName_xpath.getText();
-        System.out.println("Laptop Name in Cart: " + laptopName);
-        return laptopName;
+    public void getAddedLaptopName() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement laptop = wait.until(ExpectedConditions.visibilityOf(addedLaptopName));
+        laptop.getText();
     }
     public void clickPlaceOrderButton() {
-        new WebDriverWait(driver, Duration.ofSeconds(5))
-                .until(ExpectedConditions.elementToBeClickable(placeOrderButton_xpath));
-        placeOrderButton_xpath.click();
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(
+                ExpectedConditions.elementToBeClickable(placeOrderButton)
+        );
+        placeOrderButton.click();
     }
 }
