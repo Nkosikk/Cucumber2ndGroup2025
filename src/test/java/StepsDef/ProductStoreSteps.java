@@ -87,8 +87,8 @@ public class ProductStoreSteps extends Base{
     @Then("I should see a confirmation that the order was successfully placed")
     public void i_should_see_a_confirmation_that_the_order_was_successfully_placed() {
         checkoutScreen.getConfirmationAlertText();
-        //checkoutScreen.clickOKButton();
     }
+
     @AfterStep
     public void addScreenshot(Scenario scenario) {
         if (scenario.isFailed()) {

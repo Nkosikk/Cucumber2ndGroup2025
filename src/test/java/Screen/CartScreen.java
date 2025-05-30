@@ -12,14 +12,10 @@ import java.time.Duration;
 public class CartScreen {
     WebDriver driver;
     @FindBy(xpath = "//a[text()='Add to cart']") WebElement addToCartButton;
-
     @FindBy(linkText = "Cart") WebElement cartLink;
-
     @FindBy(xpath = "//*[@id='tbodyid']") WebElement addedLaptopName;
-
     @FindBy(xpath = "//button[@data-toggle='modal']") WebElement placeOrderButton;
 
-    // Constructor
     public CartScreen(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -39,7 +35,6 @@ public class CartScreen {
         );
         driver.switchTo().alert().accept();
     }
-
     public void navigateToCart() {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(
                 ExpectedConditions.elementToBeClickable(cartLink)

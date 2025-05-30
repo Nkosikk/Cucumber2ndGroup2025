@@ -12,23 +12,19 @@ public class HomeScreen {
 
     WebDriver driver;
     @FindBy(xpath = "//*[@id='nava']") WebElement productStore_xpath;
-
     @FindBy(xpath = "//a[text()='Laptops']") WebElement laptopsCategory_xpath;
-
     @FindBy(xpath = "//a[text()='Sony vaio i5']") WebElement laptop_xpath;
 
     public HomeScreen(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
-
     public void verifyTheProductStoreIsDisplayed() {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(
                 ExpectedConditions.visibilityOf(productStore_xpath)
         );
         productStore_xpath.isDisplayed();
     }
-
     public String arg0;
     public void clickLaptopsCategory(String arg0) {
         this.arg0 = arg0;
@@ -37,7 +33,6 @@ public class HomeScreen {
         );
         laptopsCategory_xpath.click();
     }
-
     public void selectLaptop() {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(
                 ExpectedConditions.elementToBeClickable(laptop_xpath)
