@@ -27,6 +27,7 @@ public class CartScreen {
         );
         addToCartButton.click();
     }
+    //pop up message
     public String expectedText;
     public void assertTextIsDisplayedAndAccept(String expectedText) {
         this.expectedText = expectedText;

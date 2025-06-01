@@ -15,7 +15,9 @@ public class BrowserFactory {
             switch (browserChoice.toLowerCase()) {
                 case "chrome":
                     ChromeOptions chromeOptions = new ChromeOptions();
-                    // chromeOptions.addArguments("--headless"); // Uncomment if needed
+                    chromeOptions.addArguments("https://www.demoblaze.com/index.html");
+
+//                    chromeOptions.addArguments("--headless");
                     driver = new ChromeDriver(chromeOptions);
                     break;
                 case "firefox":

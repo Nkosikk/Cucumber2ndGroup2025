@@ -20,9 +20,7 @@ public class HomeScreen {
         PageFactory.initElements(driver, this);
     }
     public void verifyTheProductStoreIsDisplayed() {
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(
-                ExpectedConditions.visibilityOf(productStore_xpath)
-        );
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(productStore_xpath));
         productStore_xpath.isDisplayed();
     }
     public String arg0;
