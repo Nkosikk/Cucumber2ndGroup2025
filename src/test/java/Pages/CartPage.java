@@ -1,6 +1,6 @@
 package Pages;
 
-import org.openqa.selenium.By;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -16,7 +16,7 @@ public class CartPage {
     WebDriver driver;
 
     @FindBy(xpath = "//*[@id=\"page-wrapper\"]/div/div[1]/h2")
-    WebElement verifyproductcartpage_xpath;
+    WebElement verifyProductCartPage_xpath;
 
     @FindBy(xpath = "//*[@id=\"page-wrapper\"]/div/div[2]/h2")
     WebElement verifytotalpricelabel_xpath;
@@ -63,9 +63,9 @@ public class CartPage {
 
     //verify that you are in the cart page.
     public void verifyProductCartPage() {
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(verifyproductcartpage_xpath));
-        Assert.assertTrue(verifyproductcartpage_xpath.isDisplayed());
-        System.out.println(verifyproductcartpage_xpath.getText());
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(verifyProductCartPage_xpath));
+        Assert.assertTrue(verifyProductCartPage_xpath.isDisplayed());
+        System.out.println(verifyProductCartPage_xpath.getText());
     }
 
     //verify that the total price label is displayed.
