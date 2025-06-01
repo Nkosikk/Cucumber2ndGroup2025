@@ -8,14 +8,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 public class Base {
-    protected WebDriver driver;
-    protected HomeScreen homeScreen;
-    protected CartScreen cartScreen;
-    protected CheckoutScreen checkoutScreen;
-    public Base() {
-        driver = BrowserFactory.startBrowser("chrome", "https://www.demoblaze.com/index.html");
-        homeScreen = PageFactory.initElements(driver, HomeScreen.class);
-        cartScreen = PageFactory.initElements(driver, CartScreen.class);
-        checkoutScreen = PageFactory.initElements(driver, CheckoutScreen.class);
-    }
+    BrowserFactory browserFactory = new BrowserFactory();
+    final WebDriver driver = browserFactory.startBrowser("chrome", "https://www.demoblaze.com/index.html");
+    HomeScreen homeScreen = PageFactory.initElements(driver, HomeScreen.class);
+    CartScreen cartScreen = PageFactory.initElements(driver, CartScreen.class);
+    CheckoutScreen checkoutScreen = PageFactory.initElements(driver, CheckoutScreen.class);
 }
