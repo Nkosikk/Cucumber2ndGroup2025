@@ -49,7 +49,7 @@ public class CartPage {
     WebElement year_id;
 
     @FindBy(xpath = "//*[@id=\"orderModal\"]/div/div/div[3]/button[2]")
-    WebElement placeorderbutton_xpath;
+    WebElement purchaseButton_xpath;
 
     @FindBy(xpath = "/html/body/div[10]/h2")
     WebElement orderconfirmation_xpath;
@@ -77,7 +77,9 @@ public class CartPage {
 
     //verify the correct total price is calculated,
     public void verifytotalprice() {
-
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(totalprice_id));
+        String totalPriceValue = totalprice_id.getText();
+        System.out.println("Total price is: " + totalPriceValue);
 
     }
 
@@ -92,8 +94,10 @@ public class CartPage {
     public void setVerifyplaceorderpopup_id() {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(verifyplaceorderpopup_id));
         Assert.assertTrue(verifyplaceorderpopup_id.isDisplayed());
-        System.out.println("Place order popup is displayed.");
+        System.out.println("Place order form is displayed.");
     }
+
+
 
     //Fill in the name field in the place order popup.
     public void enterName(String name) {
@@ -134,10 +138,10 @@ public class CartPage {
     }
 
     //Click on the place order button in the place order popup
-    public void clickPlaceOrderButton() throws InterruptedException {
+    public void clickPurchaseButton() throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOf(placeorderbutton_xpath));
-        placeorderbutton_xpath.click();
+        wait.until(ExpectedConditions.visibilityOf(purchaseButton_xpath));
+        purchaseButton_xpath.click();
         System.out.println("Place order button in the popup clicked.");
         Thread.sleep(2000);
 

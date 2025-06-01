@@ -20,12 +20,6 @@ public class Steps extends Base {
     }
 
 
-    @When("I verify that the product page is displayed")
-    public void i_verify_that_the_product_page_is_displayed() {
-        productPage.verifyHomePageisDisplayed();
-
-    }
-
     @And("I verify that the categories are displayed")
     public void i_verify_that_the_categories_are_displayed() {
         productPage.verifycategoriesisDisplayed();
@@ -88,7 +82,6 @@ public class Steps extends Base {
     }
 
 
-
     @And("I verify the correct total amount is displayed")
     public void i_verify_the_correct_total_amount_is_displayed_total() {
         cartPage.verifytotalprice();
@@ -101,10 +94,15 @@ public class Steps extends Base {
 
     }
 
-    @And("I verify that the place order pop up is displayed")
-    public void i_verify_that_the_place_order_pop_up_is_displayed() {
+    @And("I verify that the place order form is displayed")
+    public void i_verify_that_the_place_order_form_is_displayed() {
         cartPage.setVerifyplaceorderpopup_id();
 
+    }
+
+    @And("I click on the purchase button without filling in the form") //without filling the form
+    public void i_click_on_the_purchase_button_without_filling_in_the_form() throws InterruptedException {
+        cartPage.clickPurchaseButton();
     }
 
 
@@ -125,7 +123,7 @@ public class Steps extends Base {
         }
     }
 
-/**    @And("I fill in the order details with name {string}")
+   @And("I fill in the order details with name {string}")
     public void i_fill_in_the_order_details_with_name_name(String name) {
         cartPage.enterName(name);
     }
@@ -157,7 +155,7 @@ public class Steps extends Base {
 
     @And("I click on the purchase button")
     public void i_click_on_the_purchase_button() throws InterruptedException {
-        cartPage.clickPlaceOrderButton();
+        cartPage.clickPurchaseButton();
     }
 
     @And("I verify that the purchase confirmation pop up is displayed")
@@ -171,7 +169,6 @@ public class Steps extends Base {
     }
 
 
-*/
     @AfterStep
     public void addScreenshot(Scenario scenario) {
         if (scenario.isFailed()) {

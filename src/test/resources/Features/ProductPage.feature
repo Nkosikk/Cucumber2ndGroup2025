@@ -2,7 +2,6 @@ Feature: Demoblaze
 
   Scenario Outline: As a user I want to verify that I'm on the Demoblaze product page.
     Given I am on the Demoblaze product page
- #   When I verify that the product page is displayed
     And I verify that the categories are displayed
     And I click on laptops under categories <categories>
     And I click on the desired product <product type>
@@ -14,22 +13,23 @@ Feature: Demoblaze
     And I verify the total price label is displayed
     And I verify the correct total amount is displayed
     And I click on the place order button
-    And I verify that the place order pop up is displayed
+    And I verify that the place order form is displayed
+    And I click on the purchase button without filling in the form
     When The form is incomplete a warning alert popup is displayed
-#    And I fill in the order details with name "<name>"
-#    And I fill in the order details with country "<country>"
-#    And I fill in the order details with city "<city>"
-#    And I fill in the order details with credit card "<credit card>"
-#    And I fill in the order details with month "<month>"
-#    And I fill in the order details with year "<year>"
-#    And I click on the purchase button
-#    And I verify that the purchase confirmation pop up is displayed
-#    Then I click on the ok button to close the purchase confirmation pop up
+    And I fill in the order details with name "<name>"
+    And I fill in the order details with country "<country>"
+    And I fill in the order details with city "<city>"
+    And I fill in the order details with credit card "<credit card>"
+    And I fill in the order details with month "<month>"
+    And I fill in the order details with year "<year>"
+    And I click on the purchase button
+    And I verify that the purchase confirmation pop up is displayed
+    Then I click on the ok button to close the purchase confirmation pop up
 
     Examples:
 
-      | categories | product type |  | name | country | city | credit card | month | year |
-      | Laptops    | MacBook air  |  |      |         |      |             |       |      |
+      | categories | product type |  | name     | country      | city      | credit card      | month | year |
+      | Laptops    | MacBook air  |  | Precious | South Africa | Cape Town | 2897648541078014 | June  | 2025 |
 
 
 
