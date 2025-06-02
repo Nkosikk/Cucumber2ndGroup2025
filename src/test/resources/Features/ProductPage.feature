@@ -1,7 +1,7 @@
-Feature: Demoblaze
+Feature: demoBlaze
 
   Scenario Outline: As a user I want to verify that I'm on the Demoblaze product page.
-    Given I am on the Demoblaze product page
+    Given I am on the demoBlaze product page
     And I verify that the categories are displayed
     And I click on laptops under categories <categories>
     And I click on the desired product <product type>

@@ -14,8 +14,8 @@ import org.openqa.selenium.TakesScreenshot;
 public class Steps extends Base {
 
     //ProductPage steps
-    @Given("I am on the Demoblaze product page")
-    public void i_am_on_the_demoblaze_product_page() {
+    @Given("I am on the demoBlaze product page")
+    public void i_am_on_the_Demoblaze_product_page() {
         productPage.verifyHomePageisDisplayed();
     }
 
@@ -31,14 +31,14 @@ public class Steps extends Base {
     }
 
     @And("I click on the desired product (.*)$")
-    public void i_click_on_the_desired_product(String producttype) throws InterruptedException {
-        productPage.clickonProductName(producttype);
+    public void i_click_on_the_desired_product(String ProductType) throws InterruptedException {
+        productPage.clickOnProductName(ProductType);
 
     }
 
     @Then("I verify that the product details are displayed")
     public void i_verify_that_the_product_details_are_displayed() {
-        productPage.verifyproductname("productName_xpath", "verifyproductname_name");
+        productPage.verifyProductName("productName_xpath", "verifyProductName_name");
     }
 
     @And("I click on the add to cart button")
@@ -123,7 +123,7 @@ public class Steps extends Base {
         }
     }
 
-   @And("I fill in the order details with name {string}")
+   @And("I fill in the order details with name {string}") // filling the form
     public void i_fill_in_the_order_details_with_name_name(String name) {
         cartPage.enterName(name);
     }

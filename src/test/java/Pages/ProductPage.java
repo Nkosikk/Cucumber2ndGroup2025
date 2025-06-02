@@ -14,12 +14,12 @@ public class ProductPage {
     WebDriver driver;
 
     @FindBy(id = "nava")
-    WebElement verifyhomePage_id;
+    WebElement verifyHomePage_id;
 
     @FindBy(id = "cat")
     WebElement category_id;
 
-    @FindBy(xpath = "//a[@id = 'itemc'][2]")
+    @FindBy(id = "itemc")
     List<WebElement> item_id;
 
     @FindBy(xpath = "//*[@id=\"tbodyid\"]/div[3]/div/div/h4/a")
@@ -40,9 +40,9 @@ public class ProductPage {
     }
 
     public void verifyHomePageisDisplayed() {
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(verifyhomePage_id));
-        Assert.assertTrue(verifyhomePage_id.isDisplayed());
-        System.out.println(verifyhomePage_id.getText());
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(verifyHomePage_id));
+        Assert.assertTrue(verifyHomePage_id.isDisplayed());
+        System.out.println(verifyHomePage_id.getText());
     }
 
     public void verifycategoriesisDisplayed() {
@@ -70,14 +70,14 @@ public class ProductPage {
 
     }
 
-    public void clickonProductName(String product) throws InterruptedException {
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(productName_xpath));
+    public void clickOnProductName(String product) throws InterruptedException {
+        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOf(productName_xpath));
         Assert.assertEquals(productName_xpath.getText(), product, "Product name does not match!");
         productName_xpath.click();
         Thread.sleep(Long.parseLong("2000")); // Wait for the product details page to load
     }
 
-    public void verifyproductname(String expectedProductType, String verifyproductnameName) {
+    public void verifyProductName(String expectedProductType, String verifyProductName) {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(verifyproductname_name));
         Assert.assertEquals(verifyproductname_name.getText(), "MacBook air", "Product name is not displayed correctly!");
         System.out.println("Product name is displayed correctly: " + verifyproductname_name.getText());
