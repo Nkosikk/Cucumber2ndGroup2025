@@ -16,14 +16,6 @@ public class CartPage {
 
         this.driver = driver;
     }
-//
-//    public void deleteOneLaptop() {
-//        driver.findElement(By.xpath("(//a[text()='Delete'])[1]")).click();
-//    }
-//    public void oneLaptopIsDeleted() {
-//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-//        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("(//a[text()='Delete'])[1]")));
-//    }
 
     public boolean isLaptopListed() {
         try {

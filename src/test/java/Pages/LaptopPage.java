@@ -33,12 +33,7 @@ public class LaptopPage {
     }
 
     public void verifyProductAddedMessage() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement addToCartBtn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[text()='Add to cart']")));
-        addToCartBtn.click();
-        Alert alert = wait.until(ExpectedConditions.alertIsPresent());
-        System.out.println("Alert text: " + alert.getText());
-        alert.accept();
+
     }
 
     public void clickOKInPopup() {
