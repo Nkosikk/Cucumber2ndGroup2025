@@ -11,7 +11,7 @@ target
 *.iws
 *.iml
 *.ipr
-Reports
+Reports/
 ### Eclipse ###
 .apt_generated
 .classpath
@@ -20,7 +20,7 @@ Reports
 .settings
 .springBeans
 .sts4-cache
-test-output
+test-output/
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
