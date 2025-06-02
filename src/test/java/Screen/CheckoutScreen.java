@@ -27,8 +27,7 @@ public class CheckoutScreen {
         PageFactory.initElements(driver, this);
     }
     public void verifyPlaceOrderPageIsDisplayed() {
-        new WebDriverWait(driver, Duration.ofSeconds(10))
-                .until(ExpectedConditions.visibilityOf(placeOrderPageTitle_path));
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(placeOrderPageTitle_path));
         placeOrderPageTitle_path.isDisplayed();
     }
     public void fillPlaceOrderForm(String name, String country, String city, String card, String month, String year) {
