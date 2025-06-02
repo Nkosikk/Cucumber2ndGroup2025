@@ -11,13 +11,21 @@ Feature: Demo blaze purchase process
     And click OK button on the popup
     And I click on cart button
     And verify that selected product is in the cart
+    And I click on place order button
+    And I verify Place Order form is displayed
     And I click on purchase button
-    Then I should see error message to fill out the form
-    And I click OK button on the error popup
-    And I fill out the form with valid details
+    Then I should see error message popup and click on OK button
+    And I fill in name <Name>
+    And I fill in country <Country>
+    And I fill in city <City>
+    And I fill in credit card <CreditCard>
+    And I fill in month <Month>
+    And I fill in year <Year>
     And I click on purchase button again
     Then I should see the purchase confirmation message
 
-Examples:
+    Examples:
+      | Name          | Country      | City    | CreditCard       | Month | Year |
+      | John Matimela | South Africa | Yoville | 1234567890123456 | May   | 2025 |
 
 

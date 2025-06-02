@@ -1,15 +1,20 @@
 package Pages;
 
-import StepsDefinition.Base;
+
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class ProductPage extends Base {
+import java.time.Duration;
+
+public class ProductPage {
 
     WebDriver driver;
+    private String selectedProductName;
 
 // product page elements and locators
 
@@ -29,27 +34,37 @@ public class ProductPage extends Base {
     WebElement cartButton_xpath;
 
 
-
+    // Constructor to initialize the Webdriver
     public ProductPage(WebDriver driver) {
         this.driver = driver;
     }
 
-
+    // --- Step 1: Verify product page is displayed ---
     public void verifyProductPageIsDisplayed() {
         productPageHeader_id.isDisplayed();
     }
 
+    // --- Step 2: Select product category ---
     public void selectProductCategory() {
+        // Wait for the category element to be clickable if necessary
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(categoryLaptop_id));
         categoryLaptop_id.click();
     }
 
-    private String selectedProductName;
 
+
+    // --- Step 3: Select product from category ---
     public void selectProductFromCategory() {
+        new WebDriverWait(driver, Duration.ofSeconds(20)).until(ExpectedConditions.visibilityOf(macBookAir_xpath));
         selectedProductName = macBookAir_xpath.getText();
         macBookAir_xpath.click();
     }
 
+    public String getSelectedProductName() {
+        return selectedProductName;
+    }
+
+    // --- Step 4: Verify product details ---
     public void verifyProductDetails() {
         WebElement productTitle = driver.findElement(By.cssSelector(".name")); // adjust selector as needed
         String displayedProductName = productTitle.getText();
@@ -58,11 +73,12 @@ public class ProductPage extends Base {
         }
     }
 
-    public void clickAddToCartButton(){
+    // --- Step 5: Click 'Add to cart' button ---
+    public void clickAddToCartButton() {
         addToCartButton_xpath.click();
     }
 
-    //Handling the popup after adding to cart
+    // --- Step 6: Handle alert after adding to cart ---
     public void handleAddToCartAlert() {
         Alert alert = driver.switchTo().alert();
         String alertText = alert.getText();
@@ -72,16 +88,13 @@ public class ProductPage extends Base {
         alert.accept();
     }
 
-//    public void handleAddToCartPopup() {
-//        WebElement popup = driver.findElement(By.id("cartModal")); // adjust selector as needed
-//        if (popup.isDisplayed()) {
-//            WebElement okButton = popup.findElement(By.xpath("//button[text()='OK']"));
-//            okButton.click();
-//        } else {
-//            throw new AssertionError("Add to cart popup did not appear!");
-//        }
-//    }
+    // Step 6.1: Click OK button on the popup
+    public void clickOkButtonOnPopup() {
+        Alert alert = driver.switchTo().alert();
+        alert.accept(); // Clicks the OK button on the alert
+    }
 
+    // --- Step 7: Click cart button ---
     public void clickCartButton() {
         cartButton_xpath.click();
     }
