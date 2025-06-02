@@ -147,8 +147,8 @@ public class Steps extends Base {
     }
 
 
-//    @After
-//    public void quitBrowser() {
-//        driver.quit();
-//    }
+    @After
+    public void quitBrowser() {
+        driver.quit();
+    }
 }
