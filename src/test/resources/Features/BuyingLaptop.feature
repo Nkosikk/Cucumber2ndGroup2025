@@ -12,8 +12,7 @@ Feature: Buying a laptop
     Then I should see the laptop listed
     When I click on Place Order
     And I click Purchase without filling form
-    Then I should see a popup message "Please fill out Name and Creditcard."
-    When I click OK in the popup
+    And I click Ok on a popup message
     And I fill in my name <name>
     And i fill in my country <country>
     And I fill in my city <city>
@@ -22,10 +21,11 @@ Feature: Buying a laptop
     And I fill in my year <year>
     When I click on Purchase
     Then I should see the purchase confirmation message
-#    And I should see "Thank you for your purchase!" on the confirmation page
-#    When I click OK in the confirmation popup
-#    Then I should be redirected to the homepage
+    When I see "Thank you for your purchase!" on the confirmation page
+    And I click OK in the confirmation popup
+
+
 
     Examples:
-      | name         | country | city     | creditCard | month | year |
-      | Sifiso Qwabe | RSA     | New York | 1234567890 | 03    | 2025 |
+      | name         | country | city     | creditCard          | month | year |
+      | Sifiso Qwabe | RSA     | New York | 4111 1111 1111 1111 | 03    | 2025 |

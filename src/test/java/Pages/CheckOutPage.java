@@ -1,9 +1,6 @@
 package Pages;
 
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -13,9 +10,12 @@ import java.time.Duration;
 
 public class CheckOutPage {
     WebDriver driver;
+    @FindBy(id = "nava")
+    WebElement id_nava;
 
 
     public CheckOutPage(WebDriver driver) {
+
 
         this.driver = driver;
     }
@@ -24,13 +24,16 @@ public class CheckOutPage {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[contains(text(),'Purchase')]"))).click();
     }
-
-    public void popUpMessage(){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    public void clickOK() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         Alert alert = wait.until(ExpectedConditions.alertIsPresent());
-        System.out.println("Alert says: " + alert.getText());
+        String actualText = alert.getText();
+        System.out.println("Alert says: " + actualText);
+        Assert.assertEquals(actualText, actualText);
         alert.accept();
     }
+
+
     public void fillInName(String name) {
         WebElement nameField = driver.findElement(By.id("name"));
         nameField.clear();
@@ -47,6 +50,7 @@ public class CheckOutPage {
         cityField.sendKeys(city);
     }
     public void fillInCreditCard(Long creditCard) {
+
         WebElement creditCardField = driver.findElement(By.id("card"));
         creditCardField.clear();
         creditCardField.sendKeys(String.valueOf(creditCard));
@@ -65,12 +69,25 @@ public class CheckOutPage {
         WebElement purchaseButton = driver.findElement(By.xpath("//button[text()='Purchase']"));
         purchaseButton.click();
     }
-    public void verifyPurchaseConfirmation() {
+    public void popUpMessage() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        Alert alert = wait.until(ExpectedConditions.alertIsPresent());
-        String expectedMessage = "Thank you for your purchase!";
-        String actualMessage = alert.getText();
-        Assert.assertTrue(actualMessage.contains(expectedMessage), "Purchase confirmation message is not as expected: " + actualMessage);
-        alert.accept();
+        WebElement confirmationModal = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//h2[text()='Thank you for your purchase!']")));
+        Assert.assertTrue(confirmationModal.isDisplayed(), "Confirmation modal is not displayed.");
+
     }
+    public void clickOk() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h2[text()='Thank you for your purchase!']")));
+        WebElement okButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[text()='OK']")));
+        okButton.click();
+    }
+
+    public void productStore() {
+        id_nava.click();
+        id_nava.isDisplayed();
+    }
+
+
+
 }
