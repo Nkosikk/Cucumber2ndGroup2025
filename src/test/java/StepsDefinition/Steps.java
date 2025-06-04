@@ -28,6 +28,7 @@ public class Steps extends Base {
     @And("I click on laptops under categories (.*)$")
     public void i_click_on_laptops_under_categories_laptops(String categories) throws InterruptedException {
         productPage.clickoncategoryproductType(categories);
+
     }
 
     @And("I click on the desired product (.*)$")
