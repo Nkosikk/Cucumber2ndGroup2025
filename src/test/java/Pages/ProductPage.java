@@ -28,7 +28,7 @@ public class ProductPage {
     WebElement macBookAir_xpath;
 
 
-    @FindBy(xpath = "//button[text()='Add to cart']")
+    @FindBy(xpath = "//a[text()='Add to cart']")
     WebElement addToCartButton_xpath;
 
     @FindBy(id = "cartur")
