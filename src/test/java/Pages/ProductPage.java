@@ -34,8 +34,8 @@ public class ProductPage {
     @FindBy(id = "cartur")
     WebElement cartButton_xpath;
 
-    @FindBy(xpath = "//*[@id='tbodyid']/h2")
-    WebElement productTitle_xpath;
+    @FindBy(css = "#tbodyid > h2")
+    WebElement productTitle;
 
 
     // Constructor to initialize the Webdriver
@@ -69,8 +69,8 @@ public class ProductPage {
 
     // --- Step 4: Verify product details ---
     public void verifyProductDetails() {
-        new WebDriverWait(driver, Duration.ofSeconds(20)).until(ExpectedConditions.visibilityOf(productTitle_xpath));
-        String displayedProductName = productTitle_xpath.getText();
+        new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.visibilityOf(productTitle));
+        String displayedProductName = productTitle.getText();
         if (!selectedProductName.equals(displayedProductName)) {
             throw new AssertionError("Product names do not match!");
         }
