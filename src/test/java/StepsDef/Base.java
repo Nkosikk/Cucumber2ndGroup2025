@@ -6,6 +6,7 @@ import Screen.HomeScreen;
 import utilities.BrowserFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import utilities.ExcelReader;
 
 public class Base {
     BrowserFactory browserFactory = new BrowserFactory();
@@ -13,4 +14,5 @@ public class Base {
     HomeScreen homeScreen = PageFactory.initElements(driver, HomeScreen.class);
     CartScreen cartScreen = PageFactory.initElements(driver, CartScreen.class);
     CheckoutScreen checkoutScreen = PageFactory.initElements(driver, CheckoutScreen.class);
+    ExcelReader excelReader = PageFactory.initElements(driver, ExcelReader.class);
 }

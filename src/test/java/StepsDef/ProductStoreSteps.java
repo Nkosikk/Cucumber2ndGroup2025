@@ -9,7 +9,7 @@ import org.openqa.selenium.TakesScreenshot;
 import utilities.ExcelReader;
 
 public class ProductStoreSteps extends Base{
-    ExcelReader excelReader = new ExcelReader();
+//    ExcelReader excelReader = new ExcelReader();
 
     @Given("I should see the product store home page displayed")
     public void i_should_see_the_product_store_home_page_displayed() {
