@@ -47,11 +47,6 @@ public class BlazeSteps extends Base {
     }
 
 
-    @And("click OK button on the popup")
-    public void click_ok_button_on_the_popup() {
-        productPage.clickOkButtonOnPopup();
-    }
-
     @And("I click on cart button")
     public void i_click_on_cart_button() {
         productPage.clickCartButton();

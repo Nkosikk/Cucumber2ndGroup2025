@@ -8,7 +8,6 @@ Feature: Demo blaze purchase process
     And I validate the product details
     And I click on add to cart button
     Then I should see a popup confirming the product has been added to the cart
-    And click OK button on the popup
     And I click on cart button
     And verify that selected product is in the cart
     And I click on place order button

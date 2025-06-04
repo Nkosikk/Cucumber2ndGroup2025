@@ -84,6 +84,7 @@ public class ProductPage {
 
     // --- Step 6: Handle alert after adding to cart ---
     public void handleAddToCartAlert() {
+        new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.alertIsPresent());
         Alert alert = driver.switchTo().alert();
         String alertText = alert.getText();
         if (!alertText.contains("Product added")) {
@@ -92,11 +93,7 @@ public class ProductPage {
         alert.accept();
     }
 
-    // Step 6.1: Click OK button on the popup
-    public void clickOkButtonOnPopup() {
-        Alert alert = driver.switchTo().alert();
-        alert.accept(); // Clicks the OK button on the alert
-    }
+
 
     // --- Step 7: Click cart button ---
     public void clickCartButton() {
