@@ -21,17 +21,21 @@ public class ProductPage {
     @FindBy(id = "nava")
     WebElement productPageHeader_id;
 
-    @FindBy(id = "itemc")
-    WebElement categoryLaptop_id;
+    @FindBy(xpath = "//a[contains(@class, 'list-group-item') and text()='Laptops']")
+    WebElement categoryLaptop_xpath;
 
     @FindBy(xpath = "//a[contains(@class, 'hrefch') and text()='MacBook air']")
     WebElement macBookAir_xpath;
+
 
     @FindBy(xpath = "//button[text()='Add to cart']")
     WebElement addToCartButton_xpath;
 
     @FindBy(id = "cartur")
     WebElement cartButton_xpath;
+
+    @FindBy(xpath = "//*[@id='tbodyid']/h2")
+    WebElement productTitle_xpath;
 
 
     // Constructor to initialize the Webdriver
@@ -47,10 +51,9 @@ public class ProductPage {
     // --- Step 2: Select product category ---
     public void selectProductCategory() {
         // Wait for the category element to be clickable if necessary
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(categoryLaptop_id));
-        categoryLaptop_id.click();
+        new WebDriverWait(driver, Duration.ofSeconds(20)).until(ExpectedConditions.visibilityOf(categoryLaptop_xpath));
+        categoryLaptop_xpath.click();
     }
-
 
 
     // --- Step 3: Select product from category ---
@@ -66,11 +69,12 @@ public class ProductPage {
 
     // --- Step 4: Verify product details ---
     public void verifyProductDetails() {
-        WebElement productTitle = driver.findElement(By.cssSelector(".name")); // adjust selector as needed
-        String displayedProductName = productTitle.getText();
+        new WebDriverWait(driver, Duration.ofSeconds(20)).until(ExpectedConditions.visibilityOf(productTitle_xpath));
+        String displayedProductName = productTitle_xpath.getText();
         if (!selectedProductName.equals(displayedProductName)) {
             throw new AssertionError("Product names do not match!");
         }
+
     }
 
     // --- Step 5: Click 'Add to cart' button ---
