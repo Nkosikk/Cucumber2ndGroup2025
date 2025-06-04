@@ -16,15 +16,14 @@ public class CartPage {
     @FindBy(xpath = "//*[@id='tbodyid']") WebElement addedLaptopName;
     @FindBy(xpath = "//button[@data-toggle='modal']") WebElement placeOrderButton;
 
+// Constructor ( means making the webdriver to be assesable)
     public CartPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
     public void clickAddToCartButton() {
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(
-                ExpectedConditions.elementToBeClickable(addToCartButton)
-        );
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(addToCartButton));
         addToCartButton.click();
     }
     public String expectedText;

@@ -12,7 +12,7 @@ public class HomePage {
 
     WebDriver driver;
     @FindBy(xpath = "//*[@id='nava']") WebElement productStore_xpath;
-    @FindBy(xpath = "//a[text()='Laptops']") WebElement laptopsCategory_xpath;
+    @FindBy(xpath = "//a[@onclick=\"byCat('notebook')\"]") WebElement laptopsCategory_xpath;
     @FindBy(xpath = "//a[text()='Sony vaio i5']") WebElement laptop_xpath;
 
     public HomePage(WebDriver driver) {

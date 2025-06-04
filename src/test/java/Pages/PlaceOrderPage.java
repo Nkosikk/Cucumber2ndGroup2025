@@ -13,7 +13,7 @@ public class PlaceOrderPage {
     WebDriver driver;
 
     @FindBy(xpath = "//h5[@id='orderModalLabel']") WebElement placeOrderPageTitle_path;
-    @FindBy(xpath = "//button[text()='Purchase']") WebElement purchaseButton_path;
+    @FindBy(xpath = "//*[@onclick=\"purchaseOrder()\"] ") WebElement purchaseButton_path;
     @FindBy(id = "name") WebElement nameInput_id;
     @FindBy(id = "country") WebElement countryInput_id;
     @FindBy(id = "city") WebElement cityInput_id;
@@ -31,25 +31,32 @@ public class PlaceOrderPage {
                 .until(ExpectedConditions.visibilityOf(placeOrderPageTitle_path));
         placeOrderPageTitle_path.isDisplayed();
     }
-    public void fillPlaceOrderForm(String name, String country, String city, String card, String month, String year) {
+
+    public void insertName(String name){
         nameInput_id.clear();
         nameInput_id.sendKeys(name);
-
+    }
+    public void insertYourCountryName(String country){
         countryInput_id.clear();
         countryInput_id.sendKeys(country);
-
+    }
+    public void insertYourCity(String city){
         cityInput_id.clear();
         cityInput_id.sendKeys(city);
-
+    }
+     public void insertYourCardNumber(String card){
         creditCardInput_id.clear();
         creditCardInput_id.sendKeys(card);
-
+    }
+    public void insertTheMonth(String month){
         monthInput_id.clear();
         monthInput_id.sendKeys(month);
-
+    }
+    public void insertTheYear(String year){
         yearInput_id.clear();
         yearInput_id.sendKeys(year);
     }
+
     public void clickPurchaseButton() {
         purchaseButton_path.click();
     }

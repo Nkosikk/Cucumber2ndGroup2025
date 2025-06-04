@@ -6,6 +6,7 @@ import Pages.HomePage;
 
 import Pages.PlaceOrderPage;
 import Utills.BrowserFactory;
+import Utills.ExcelReader;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
@@ -16,6 +17,7 @@ public class Base {
     HomePage homePage = PageFactory.initElements(driver, HomePage.class);
     CartPage cartPage = PageFactory.initElements(driver, CartPage.class);
     PlaceOrderPage placeOrderPage = PageFactory.initElements(driver, PlaceOrderPage.class);
+    ExcelReader excelReader = PageFactory.initElements(driver, ExcelReader.class);
 
 
 }
