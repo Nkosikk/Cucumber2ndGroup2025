@@ -1,5 +1,6 @@
 package Pages;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -17,7 +18,7 @@ public class CartPage {
 
     // Cart page elements and locators
 
-    @FindBy(xpath = "//a[contains(@class, 'hrefch') and text()='MacBook air']")
+    @FindBy(xpath = "//*[@id=\"tbodyid\"]/tr/td[2]")
     WebElement macBookAir_xpath;
 
     @FindBy(xpath = "//button[text()='Place Order']")
@@ -57,7 +58,14 @@ public class CartPage {
 
     // Step 8: Verify that selected product is in the cart
     public String getCartProductName() {
-        return macBookAir_xpath.getText();
+        // Wait for the product name element to be visible
+        new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.visibilityOf(macBookAir_xpath));
+        String actualProductName = macBookAir_xpath.getText();
+        String expectedProductName = "MacBook air";
+        if (!expectedProductName.equals(actualProductName)) {
+            throw new AssertionError("Product in cart does not match selected product!");
+        }
+        return actualProductName;
     }
 
     // Step 9: Click on Place Order button
@@ -80,7 +88,7 @@ public class CartPage {
     public void clickOkButtonOnErrorPopup() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         try {
-            org.openqa.selenium.Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+            Alert alert = wait.until(ExpectedConditions.alertIsPresent());
             alert.accept(); // Clicks the OK button
         } catch (Exception e) {
             throw new AssertionError("Expected alert was not present.", e);

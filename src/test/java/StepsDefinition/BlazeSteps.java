@@ -101,7 +101,7 @@ public class BlazeSteps extends Base {
     }
 
     @And("I fill in credit card (.*)$")
-    public void i_fill_in_credit_card(Integer int1) {
+    public void i_fill_in_credit_card(String CreditCard) {
         cartPage.enterRandomCreditCard();
     }
 
