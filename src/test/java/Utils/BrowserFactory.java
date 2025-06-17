@@ -13,17 +13,18 @@ public class BrowserFactory {
     public static WebDriver startBrowser(String browserChoice, String url){
         switch (browserChoice.toLowerCase()){
             case "chrome":
-                ChromeOptions chromeOptions = new ChromeOptions();
-                chromeOptions.addArguments("--headless");
+               ChromeOptions chromeOptions = new ChromeOptions();
+//                chromeOptions.addArguments("--headless");
                 driver = new ChromeDriver(chromeOptions);
                 break;
             case "firefox":
                 driver = new FirefoxDriver();
+                break;
             default:
                 driver = new EdgeDriver();
                 break;
         }
-        driver.get(url);
+//        driver.get(url);
         driver.manage().window().maximize();
         return driver;
     }
