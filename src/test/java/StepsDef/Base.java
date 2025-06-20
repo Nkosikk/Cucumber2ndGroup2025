@@ -9,6 +9,8 @@ import org.openqa.selenium.support.PageFactory;
 import utilities.ExcelReader;
 
 public class Base {
+
+//    <<<< First we need to create a BrowserFactory object class to start the browser
     BrowserFactory browserFactory = new BrowserFactory();
     final WebDriver driver = browserFactory.startBrowser("chrome", "https://www.demoblaze.com/index.html");
     HomeScreen homeScreen = PageFactory.initElements(driver, HomeScreen.class);

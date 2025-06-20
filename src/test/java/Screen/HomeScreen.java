@@ -24,6 +24,8 @@ public class HomeScreen {
         productStore_xpath.isDisplayed();
     }
     public String arg0;
+
+//    Created this method to handle the dynamic nature of the category name
     public void clickLaptopsCategory(String arg0) {
         this.arg0 = arg0;
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(
@@ -38,3 +40,5 @@ public class HomeScreen {
         laptop_xpath.click();
     }
 }
+
+// GO TO THE BASE CLASS AND ADD THE HOME PAGE OBJECT >>>>>>>>>>>>>

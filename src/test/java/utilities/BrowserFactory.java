@@ -15,8 +15,7 @@ public class BrowserFactory {
             switch (browserChoice.toLowerCase()) {
                 case "chrome":
                     ChromeOptions chromeOptions = new ChromeOptions();
-                    chromeOptions.addArguments("https://www.demoblaze.com/index.html");
-
+                    chromeOptions.addArguments(url);
 //                    chromeOptions.addArguments("--headless");
                     driver = new ChromeDriver(chromeOptions);
                     break;
@@ -49,3 +48,4 @@ public class BrowserFactory {
         }
     }
 }
+// Call this class to the Base class and use the driver object to initialize the screens objects
