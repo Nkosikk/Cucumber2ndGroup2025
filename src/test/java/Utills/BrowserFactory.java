@@ -29,3 +29,4 @@ public class BrowserFactory {
         return driver;
     }
 }
+// Call this class to the Base class and use the driver object to initialize the pages

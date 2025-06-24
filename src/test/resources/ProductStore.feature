@@ -12,8 +12,8 @@ Feature: Complete Product Purchase Flow on DemoBlaze
 
     Then I should see the laptop is displayed in the cart
     When I click on Place Order
-
     Then I should see the place order form displayed
+
     And I click on Purchase without entering any data
     Then I should see an error alert displayed with the message "Please fill out Name and Credit card."
 

@@ -38,3 +38,4 @@ public class HomePage {
         laptop_xpath.click();
     }
 }
+// Go to the base and call the homepage object

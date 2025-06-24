@@ -11,6 +11,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 public class Base {
+// First we need to create the browserFactary Opject class to the browser
 
     BrowserFactory browserFactory = new BrowserFactory();
     final WebDriver driver = browserFactory.startBrowser("chrome", "https://www.demoblaze.com/index.html");

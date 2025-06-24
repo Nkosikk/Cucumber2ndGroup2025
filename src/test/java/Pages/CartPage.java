@@ -52,4 +52,4 @@ public class CartPage {
         placeOrderButton.click();
     }
 }
-
+// Go to the base and call the CartPage Object
