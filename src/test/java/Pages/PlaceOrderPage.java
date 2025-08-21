@@ -21,6 +21,8 @@ public class PlaceOrderPage {
     @FindBy(id = "month") WebElement monthInput_id;
     @FindBy(id = "year") WebElement yearInput_id;
     @FindBy(xpath = "//div[contains(@class,'sweet-alert')]") WebElement confirmationAlert_path;
+    @FindBy(xpath ="//button[text()='Purchase']") WebElement purchase_xpath;
+
 
 // Constructor
 
@@ -32,6 +34,16 @@ public class PlaceOrderPage {
         new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.visibilityOf(placeOrderPageTitle_path));
         placeOrderPageTitle_path.isDisplayed();
+    }
+    public void clickPurchaseButtonWithoutEnteringData() {
+        purchase_xpath.click();
+    }
+    public String arg0;
+    public void errorTextIsDisplayedAndAccept(String arg0) {
+        this.arg0 = arg0;
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.alertIsPresent());
+        driver.switchTo().alert().accept();
     }
 
     public void insertName(String name){
@@ -59,15 +71,17 @@ public class PlaceOrderPage {
         yearInput_id.sendKeys(year);
     }
 
-    public void clickPurchaseButton() {
-        purchaseButton_path.click();
-    }
+
     public String errorText;
     public void errorTextIsDisplayedAndPressOK(String errorText) {
         this.errorText = errorText;
         new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.alertIsPresent());
         driver.switchTo().alert().accept();
+    }
+
+    public void clickPurchaseButton() {
+        purchaseButton_path.click();
     }
     public void getConfirmationAlertText() {
         new WebDriverWait(driver, Duration.ofSeconds(10))
