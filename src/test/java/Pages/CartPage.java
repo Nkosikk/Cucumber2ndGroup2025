@@ -27,8 +27,8 @@ public class CartPage {
         addToCartButton.click();
     }
     public String expectedText;
-    public void assertTextIsDisplayedAndAccept(String expectedText) {
-        this.expectedText = expectedText;
+    public void assertTextIsDisplayedAndAccept(String accept) {
+        this.expectedText = accept;
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(
                 ExpectedConditions.alertIsPresent()
         );

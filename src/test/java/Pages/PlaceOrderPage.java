@@ -22,6 +22,8 @@ public class PlaceOrderPage {
     @FindBy(id = "year") WebElement yearInput_id;
     @FindBy(xpath = "//div[contains(@class,'sweet-alert')]") WebElement confirmationAlert_path;
 
+// Constructor
+
     public PlaceOrderPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
