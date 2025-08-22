@@ -6,6 +6,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+
 public class BrowserFactory {
 
     public static WebDriver driver;
@@ -48,4 +49,3 @@ public class BrowserFactory {
         }
     }
 }
-// Call this class to the Base class and use the driver object to initialize the screens objects

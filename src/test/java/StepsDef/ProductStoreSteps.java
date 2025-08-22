@@ -6,7 +6,6 @@ import io.cucumber.java.Scenario;
 import io.cucumber.java.en.*;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import utilities.ExcelReader;
 
 public class ProductStoreSteps extends Base{
 
