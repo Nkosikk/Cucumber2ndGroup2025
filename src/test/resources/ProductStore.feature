@@ -1,4 +1,4 @@
-
+@DemoBlaze @AphiweTest
 Feature: Complete Product Purchase Flow on DemoBlaze
 
   Scenario: Complete Laptop Purchase Flow with Excel Data Input
