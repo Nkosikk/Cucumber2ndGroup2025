@@ -1,82 +1,58 @@
 package StepsDefinition;
 
 import io.cucumber.java.After;
-import io.cucumber.java.AfterStep;
-import io.cucumber.java.Scenario;
+
 import io.cucumber.java.en.*;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-
-
-import java.util.Random;
 
 public class Steps extends Base {
-
-    @Given("The user table is displayed")
-    public void the_user_table_is_displayed() {
-        userTablePage.verifyUserTableIsDisplayed();
-    }
-
-    @And("The user click add user")
-    public void the_user_click_add_user() {
-        userTablePage.clickAddUserButton();
-
-
-    }
-
-    @And("The user validates that the add user form is displayed")
-    public void the_user_validates_that_the_add_user_form_is_displayed() {
-        addUserPage.verifyAddUserPageIsDisplayed();
-    }
-
-    @And("The user enters the firstName (.*)$")
-    public void the_user_enters_the_first_name(String firstName) {
-        addUserPage.enterFirstName(firstName);
-    }
-
-    @And("The user enters the lastName (.*)$")
-    public void theUserEntersTheLastName(String lastName) {
-        addUserPage.enterLastName(lastName);
-    }
-
-
-    @And("The user enter the userName which comes from (.*) and (.*)$")
-    public void theUserEnterTheUserNameWhichComesFromLastNameAndFirstName(String firstName, String lastName) {
-        Random random = new Random();
-        int randomNumber = 10000 + random.nextInt(90000); // Generates a 4-digit random number
-
-        String Username = firstName + lastName + randomNumber;
-        addUserPage.enterUserName(Username);
-    }
-
-    @AfterStep
-    public void addScreenshot(Scenario scenario) {
-        if (scenario.isFailed()) {
-            byte[] screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
-            scenario.attach(screenshot, "image/png", "screenshot");
-        }
-    }
 
     @After
     public void quitBrowser() {
         driver.quit();
     }
 
-    @And("The user enters the password {}")
-    public void theUserEntersThePassword(String password) {
+    @Given("Iam on the login page")
+    public void iam_on_the_login_page() {
+        loginPage.loginPageDisplayed();
+    }
+    @When("i enter username {}")
+    public void i_enter_username(String username) {
 
-        addUserPage.enterPassword(password);
+        loginPage.enterUsername(username);
+    }
+    @And("I enter password {}")
+    public void i_enter_password(String password) {
+
+        loginPage.enterPassword(password);
+
+    }
+    @And("i click login button")
+    public void i_click_login_button() {
+        loginPage.clickLoginButton();
     }
 
-    @And("The user select the customerType {}")
-    public void theUserSelectTheCustomerType(String customerType) {
-
-        addUserPage.selectCompanyType(customerType);
+    /**---------------Home Page Steps Definition------------------**/
+    @Then("I should be on the home page")
+    public void i_should_be_on_the_home_page() {
+        loginPage.landingPageDisplayed();
     }
 
-    @And("The user select the role {}")
-    public void theUserSelectTheRoleRole(String role) {
-        addUserPage.selectRole(role.trim());
+    @Given("I am logged in with valid credentials")
+    public void i_am_logged_in_with_valid_credentials() {
+
+            loginPage.loginPageDisplayed();
+            loginPage.enterUsername("standard_user");
+            loginPage.enterPassword("secret_sauce");
+            loginPage.clickLoginButton();
+
+    }
+    @When("User click add to cart button")
+    public void user_click_add_to_cart_button() {
+        homePage.clickAddToCartButton();
+    }
+    @Then("User verify the cart icon has item")
+    public void user_verify_the_cart_icon_has_item() {
+        homePage.isItemAddedToCart();
     }
 
 }
